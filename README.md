@@ -1,2 +1,2 @@
 # bookshelf
-A simple web frame to style and serve rendered html fragments
+A simple web frame application to style and serve rendered html fragments
