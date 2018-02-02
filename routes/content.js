@@ -1,9 +1,13 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET users listing. */
+
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+
+  // we probably don't need to render a view here, 
+  // just return the indcated html fragment. 
+  
+
 });
 
 module.exports = router;

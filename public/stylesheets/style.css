@@ -1,9 +1,33 @@
+@font-face {
+   font-family: 'dovestype';
+   src: url('/fonts/dovestype-regular-webfont.woff2') format('woff2'), url('/fonts/dovestype-regular-webfont.woff') format('woff');
+   font-weight: normal;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: 'enochian';
+   src: url('/fonts/enochian-webfont.woff2') format('woff2'), url('/fonts/ .woff') format('woff');
+   font-weight: normal;
+   font-style: normal;
+}
+
+
 body {
-  padding: 50px;
-  /* font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; */
-font: 14px "Baskerville Old Face Regular", 
+   padding: 50px;
+   font: 1.6em "dovestype", Georgia, Serif;
 }
 
 a {
-  color: #00B7FF;
+   color: #00B7FF;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+   font-family: "dovestype", Georgia, Serif;
+   font-variant: small-caps;
 }
