@@ -17,7 +17,9 @@
 
 <script>
 export default {
-  name: "app"
+  name: "app",
+  nav:
+    "Actually, the nav for content goes here. It's part of the frame not the content"
 };
 </script>
 
@@ -40,8 +42,6 @@ main {
 }
 
 nav {
-
-  
 }
 
 header {

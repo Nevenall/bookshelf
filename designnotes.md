@@ -1,0 +1,1 @@
+make the file content to nav data a module? maybe there's already a npm package for that?

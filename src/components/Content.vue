@@ -24,7 +24,9 @@ export default {
   name: "content",
   data() {
     return {
-      msg: "Welcome to BookShelf"
+      msg: "Welcome to BookShelf",
+
+      nav: "make some data that we can render as the links to files."
     };
   }
 };
