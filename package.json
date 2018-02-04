@@ -1,11 +1,11 @@
 {
   "name": "bookshelf",
   "version": "1.0.0",
-  "description": "A Vue.js project",
+  "description": "A progressive web app for styling and serving html books",
   "author": "nevenall <nevenall@hotmail.com>",
   "private": true,
   "scripts": {
-    "dev": "node build/dev-server.js",
+    "dev": "node buildnpm/dev-server.js",
     "start": "node build/dev-server.js",
     "build": "node build/build.js",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
