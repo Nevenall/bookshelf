@@ -10,6 +10,8 @@ module.exports = {
 
 
 
-
+  dev: function dev() {
+    fs.readdir("C:\\src\\bookshelf\\static\\content")
+  }
 
 }
