@@ -3,9 +3,10 @@
     <header>
       <span>BookShelf</span>
     </header>
-    <nav >
+    <!-- some day you will be an offcanvas nav -->
+    <nav>
       <ul>
-          <li><a href="#">Home</a></li>
+          <li v-for="page in pages" :key="page"><a href="">{{page}}</a></li>
       </ul>
     </nav>
     <main>
@@ -16,10 +17,18 @@
 </template>
 
 <script>
+import data from "./pages";
+
 export default {
   name: "app",
-  nav:
-    "Actually, the nav for content goes here. It's part of the frame not the content"
+  data() {
+    return {
+      pages: []
+    };
+  },
+  created() {
+    this.pages = data.getPages();
+  }
 };
 </script>
 
@@ -37,11 +46,7 @@ body {
 }
 
 main {
-  text-align: center;
   margin-top: 40px;
-}
-
-nav {
 }
 
 header {

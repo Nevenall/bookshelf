@@ -1,21 +1,12 @@
 <template>
   <div class="content">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="http://chat.vuejs.org/" target="_blank" rel="noopener">Vue Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="http://vuejs-templates.github.io/webpack/" target="_blank" rel="noopener">Docs for This Template</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
+    <h1>Mage - Sufficient Reason</h1>
+    <p>A play by post Mage campaign using Cortex Plus.</p>
+    <h2>Principle of Sufficient Reason</h2>
+    <p>The Principle of Sufficient Reason states “everything must have a cause or reason.”</p>
+    <p>The name of this campaign comes from the unstated corollary. “All causes can be found and understood by the human mind given sufficient reason.”</p>
+    <p>The question of whether this corollary holds for all of reality, or not, is intended to be a foundational flavor of the campaign. Not a theme, not necessarily a question to answer, but perhaps, an ever present background color.</p>
+
   </div>
 </template>
 
@@ -24,9 +15,7 @@ export default {
   name: "content",
   data() {
     return {
-      msg: "Welcome to BookShelf",
-
-      nav: "make some data that we can render as the links to files."
+      msg: "Welcome to BookShelf"
     };
   }
 };
