@@ -22,7 +22,7 @@
 var s = require.context("./content", true);
 
 s.keys().forEach(key => {
-  console.log(`${key} -> ${s(key)}`);
+  console.log(`${key} -> ${s(key)} -> ${s.resolve(key)}`);
 });
 
 export default {
@@ -33,7 +33,7 @@ export default {
     };
   },
   created() {
-    // this.pages = s.keys().reduce(key => s(key));
+    //  this.pages = s.keys().reduce(key => s(key));
     this.pages = s.keys();
   }
 };
