@@ -7,7 +7,7 @@
     <nav>
       <ul>
           <li v-for="page in pages" :key="page">
-            <a v-bind:href="page">{{page}}</a>
+            <router-link v-bind:to="page">{{page}}</router-link>
           </li>
       </ul>
     </nav>
@@ -33,7 +33,7 @@ export default {
     };
   },
   created() {
-    //  this.pages = s.keys().reduce(key => s(key));
+    // this.pages = s.keys().reduce(key => s(key));
     this.pages = s.keys();
   }
 };
