@@ -5,11 +5,9 @@ import Content from '@/components/Content'
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
+   routes: [{
       path: '/',
       name: 'Content',
       component: Content
-    }
-  ]
+   }]
 })

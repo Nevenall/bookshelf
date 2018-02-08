@@ -17,7 +17,12 @@
 </template>
 
 <script>
-import data from "./pages";
+var s = require.context("./content", true);
+var cache = {};
+s.keys().forEach(key => {
+  cache[key] = s(key);
+  console.log(s.);
+});
 
 export default {
   name: "app",
@@ -27,7 +32,7 @@ export default {
     };
   },
   created() {
-    this.pages = data.getPages();
+    this.pages = s.keys();
   }
 };
 </script>
