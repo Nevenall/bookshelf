@@ -63,7 +63,7 @@ module.exports = {
       },
       {
         test: /\.html$/,
-        loader: 'file-loader',
+        loader: 'html-loader',
         include: [resolve('src/content')],
         options: {
           name: '[path][name].[ext]'

@@ -6,7 +6,9 @@
     <!-- some day you will be an offcanvas nav -->
     <nav>
       <ul>
-          <li v-for="page in pages" :key="page"><a href="">{{page}}</a></li>
+          <li v-for="page in pages" :key="page">
+            <a v-bind:href="page">{{page}}</a>
+          </li>
       </ul>
     </nav>
     <main>
@@ -18,10 +20,9 @@
 
 <script>
 var s = require.context("./content", true);
-var cache = {};
+
 s.keys().forEach(key => {
-  cache[key] = s(key);
-  console.log(s.);
+  console.log(`${key} -> ${s(key)}`);
 });
 
 export default {
@@ -32,6 +33,7 @@ export default {
     };
   },
   created() {
+    // this.pages = s.keys().reduce(key => s(key));
     this.pages = s.keys();
   }
 };
