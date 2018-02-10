@@ -66,6 +66,7 @@ module.exports = {
         loader: 'file-loader',
         include: [resolve('src/content')],
         options: {
+
           name: '[path][name].[ext]'
         }
       }
