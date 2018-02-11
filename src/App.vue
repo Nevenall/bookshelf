@@ -4,12 +4,8 @@
       <span>BookShelf</span>
     </header>
     <!-- some day you will be an offcanvas nav -->
-    <nav>
-      <ul>
-          <li v-for="page in pages" :key="page">
-            <router-link v-bind:to="page.path">{{page.name}}</router-link>
-          </li>
-      </ul>
+    <nav class="nav">
+        <router-link v-for="page in pages" :key="page.path" v-bind:to="page.path">{{page.name}}</router-link>
     </nav>
     <main>
       <img src="./assets/logo.png" alt="BookShelf">

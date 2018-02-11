@@ -21,7 +21,6 @@ var pages = require.context('@/pages', true)
 // maybe one data stucture for nav
 // and another one for 
 
-console.log(pages.keys())
 
 export default {
 
@@ -35,7 +34,7 @@ export default {
 
    pages: pages.keys().map(el => {
       return {
-         // need to make the name more approchable.
+         // need to make the name more approchable, and remove the extension
          name: el,
          path: el,
          content: pages(el)
