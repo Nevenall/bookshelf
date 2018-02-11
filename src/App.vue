@@ -19,7 +19,7 @@
 </template>
 
 <script>
-//var s = require.context("./content", true);
+var s = require.context("./pages", true);
 
 // s.keys().forEach(key => {
 //   console.log(`${key} -> ${s(key)} -> ${s.resolve(key)}`);
