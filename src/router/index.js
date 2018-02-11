@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import readmePage from '@/pages/README.html'
+import pages from '@/pagedata'
 
 
 
@@ -10,14 +10,13 @@ Vue.use(Router)
 
 
 const readme = {
-   template: `<div>${readmePage}</div>`
+   template: `<div>${pages.home.content}</div>`
 }
 
 export default new Router({
    routes: [{
-         path: '/',
-         name: 'Readme',
-         component: readme
-      }
-   ]
+      path: '/',
+      name: 'Readme',
+      component: readme
+   }]
 })

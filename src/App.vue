@@ -7,7 +7,7 @@
     <nav>
       <ul>
           <li v-for="page in pages" :key="page">
-            <router-link v-bind:to="page">{{page}}</router-link>
+            <router-link v-bind:to="page.path">{{page.name}}</router-link>
           </li>
       </ul>
     </nav>
@@ -19,11 +19,7 @@
 </template>
 
 <script>
-var s = require.context("./pages", true);
-
-// s.keys().forEach(key => {
-//   console.log(`${key} -> ${s(key)} -> ${s.resolve(key)}`);
-// });
+import pages from "./pagedata";
 
 export default {
   name: "app",
@@ -33,8 +29,7 @@ export default {
     };
   },
   created() {
-    // this.pages = s.keys().reduce(key => s(key));
-    //this.pages = s.keys();
+    this.pages = pages.pages;
   }
 };
 </script>
