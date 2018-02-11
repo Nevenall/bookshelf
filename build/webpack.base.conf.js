@@ -63,12 +63,28 @@ module.exports = {
       },
       {
         test: /\.html$/,
-        loader: 'file-loader',
-        include: [resolve('src/content')],
-        options: {
+        include: [resolve('src/pages')],
+        use: [{
+            loader: 'raw-loader'
+            // ,
+            // options: {
+            //   name: '[path][name].[ext]'
+            // }
+          }
+          //,
+          // {
 
-          name: '[path][name].[ext]'
-        }
+          // },
+          // {
+          //   loader: 'html-loader'
+          //   // ,
+          //   // options: {
+          //   //   name: '[path][name].[ext]'
+          //   // }
+          // }
+        ]
+
+
       }
     ]
   }

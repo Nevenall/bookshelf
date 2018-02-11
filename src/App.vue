@@ -19,11 +19,11 @@
 </template>
 
 <script>
-var s = require.context("./content", true);
+//var s = require.context("./content", true);
 
-s.keys().forEach(key => {
-  console.log(`${key} -> ${s(key)} -> ${s.resolve(key)}`);
-});
+// s.keys().forEach(key => {
+//   console.log(`${key} -> ${s(key)} -> ${s.resolve(key)}`);
+// });
 
 export default {
   name: "app",
@@ -34,7 +34,7 @@ export default {
   },
   created() {
     // this.pages = s.keys().reduce(key => s(key));
-    this.pages = s.keys();
+    //this.pages = s.keys();
   }
 };
 </script>

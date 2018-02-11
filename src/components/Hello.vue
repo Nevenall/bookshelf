@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div class="hello">
     <h1>Mage - Sufficient Reason</h1>
     <p>A play by post Mage campaign using Cortex Plus.</p>
     <h2>Principle of Sufficient Reason</h2>
@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: "content",
+  name: "hello",
   data() {
     return {
       msg: "Welcome to BookShelf"
