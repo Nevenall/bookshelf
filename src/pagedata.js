@@ -2,7 +2,7 @@
 
 'use strict'
 
-var path = require('path');
+var path = require('path')
 
 var pages = require.context('@/pages', true)
 
@@ -32,12 +32,11 @@ export default {
       content: pages("./README.html")
    },
 
-   pages: pages.keys().map(el => {
+   pages: pages.keys().map(function (key) {
       return {
-         // need to make the name more approchable, and remove the extension
-         name: el,
-         path: el,
-         content: pages(el)
+         name: path.basename(key, '.html'),
+         path: key,
+         content: pages(key)
       }
    })
 
