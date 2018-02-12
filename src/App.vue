@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header>
-      <span>BookShelf</span>
+      <span>BookShelf 1.0.0</span>
     </header>
     <!-- some day you will be an offcanvas nav -->
     <nav class="nav">
