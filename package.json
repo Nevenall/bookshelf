@@ -14,8 +14,8 @@
   "dependencies": {
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
-  },
-  "devDependencies": {
+},
+"devDependencies": {
     "autoprefixer": "^7.2.6",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
@@ -65,6 +65,7 @@
     "uglify-es": "^3.3.10",
     "url-loader": "^0.6.2",
     "vue-loader": "^13.3.0",
+    "vue-offcanvas": "0.0.3",
     "vue-style-loader": "^3.0.3",
     "vue-template-compiler": "^2.5.2",
     "webpack": "^3.11.0",
