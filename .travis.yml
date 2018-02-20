@@ -5,11 +5,11 @@ env:
   - NODE_ENV=production
 install: 
   - npm install
-before_script:
-  - npm run-script test
 script:
   - npm run-script build
 before_deploy: 
+  - "echo 'testing'"
+  - npm run-script test
   - "echo 'deploying'"
 # deploy:
 #   provider: azure_web_apps
