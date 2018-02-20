@@ -6,12 +6,12 @@ node_js:
 install: 
   - npm install
 script:
-  - npm run-script build
-after_success:
-  - "echo 'testing'"
-  - npm run-script test
-before_deploy: 
-  - "echo 'deploying'"
+  - npm run build
+  - npm run test
+# after_success:
+#   - "echo 'testing'"
+# before_deploy: 
+#   - "echo 'deploying'"
 # deploy:
 #   provider: azure_web_apps
 #   site: bookshelfpress.azurewebsites.net
