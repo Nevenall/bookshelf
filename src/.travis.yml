@@ -1,13 +1,15 @@
 language: node_js
-env: 
-- NODE_ENV=production
-install: 
-- npm install
-script:
-- npm build
-before_deploy: 
-- "echo 'deploying'"
-deploy:
-  provider: azure_web_apps
-  site: bookshelfpress.azurewebsites.net
-  slot: production
+node_js: 
+    - node
+# env: 
+# - NODE_ENV=production
+# install: 
+# - npm install
+# script:
+# - npm build
+# before_deploy: 
+# - "echo 'deploying'"
+# deploy:
+#   provider: azure_web_apps
+#   site: bookshelfpress.azurewebsites.net
+#   slot: production
