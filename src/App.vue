@@ -1,16 +1,13 @@
 <template>
   <div id="app">
     <header>
-        <button @click="show = true">Toggle</button>
-        <vue-offcanvas v-model="show" :width="300" :duration=".3" effect="ease-in-out">
             <nav>    
                 <ul>
                     <li>
-                        <!-- <router-link v-for="page in pages" :key="page.name" v-bind:to="page.name">{{page.name}}</router-link> -->
+                        <router-link v-for="page in pages" :key="page.name" v-bind:to="page.name">{{page.name}}</router-link>
                     </li>
                 </ul>
             </nav>
-        </vue-offcanvas>
         <h1 class="logo">BookShelf</h1>
     </header>
     <main>
@@ -21,7 +18,6 @@
 </template>
 
 <script>
-import VueOffcanvas from "vue-offcanvas";
 import pages from "./pagedata";
 
 export default {
@@ -36,7 +32,7 @@ export default {
     this.show = false;
     this.pages = pages.pages;
   },
-  components: { VueOffcanvas }
+  components: {}
 };
 </script>
 
