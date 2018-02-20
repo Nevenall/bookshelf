@@ -7,9 +7,10 @@ install:
   - npm install
 script:
   - npm run-script build
-before_deploy: 
+after_success:
   - "echo 'testing'"
   - npm run-script test
+before_deploy: 
   - "echo 'deploying'"
 # deploy:
 #   provider: azure_web_apps
