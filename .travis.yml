@@ -6,7 +6,7 @@ env:
 install: 
   - npm install
 script:
-  - npm build
+  - npm run-script build
 before_deploy: 
   - "echo 'deploying'"
 # deploy:
