@@ -1,13 +1,9 @@
 <template>
   <div id="app">
     <header>
-            <nav>    
-                <ul>
-                    <li>
-                        <router-link v-for="page in pages" :key="page.name" v-bind:to="page.name">{{page.name}}</router-link>
-                    </li>
-                </ul>
-            </nav>
+        <nav>    
+            <router-link v-for="page in pages" :key="page.name" v-bind:to="page.name">{{page.name}}</router-link>
+        </nav>
         <h1 class="logo">BookShelf</h1>
     </header>
     <main>
@@ -24,12 +20,10 @@ export default {
   name: "app",
   data() {
     return {
-      show: false,
       pages: []
     };
   },
   created() {
-    this.show = false;
     this.pages = pages.pages;
   },
   components: {}

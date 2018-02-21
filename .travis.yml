@@ -11,11 +11,9 @@ install:
 script:
   - npm run build
   # - npm run test
-# after_success:
-#   - "echo 'testing'"
 # before_deploy: 
 #   - "echo 'deploying'"
-# deploy:
-#   provider: azure_web_apps
-#   site: bookshelfpress.azurewebsites.net
-#   slot: production
+deploy:
+  provider: azure_web_apps
+  site: bookshelfpress.azurewebsites.net
+  slot: production
