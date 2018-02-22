@@ -26,11 +26,11 @@ export default {
 
    name: "pagedata",
 
-   // home: {
-   //    name: "readme",
-   //    path: './README.html',
-   //    content: pages("./README.html")
-   // },
+   home: {
+      name: "readme",
+      path: './README.html',
+      content: pages("./README.html")
+   },
 
    pages: pages.keys().map(function (key) {
       return {
