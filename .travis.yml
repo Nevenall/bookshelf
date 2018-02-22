@@ -8,6 +8,7 @@ install:
 - npm install
 script:
 - npm run build
+- git checkout --package-lock.json
 deploy:
   provider: firebase
   token:
