@@ -5,8 +5,7 @@ install:
   - npm i -g npm@5.7.1
   - npm ci
 script:
-- npm run build
-# - git checkout -- package-lock.json
+  - npm run build
 deploy:
   skip_cleanup: true
   provider: firebase
