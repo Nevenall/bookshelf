@@ -1,16 +1,18 @@
 <template>
-  <div id="app">
-    <header>
-        <nav>    
-            <router-link v-for="page in pages" :key="page.name" v-bind:to="page.name">{{page.name}}</router-link>
-        </nav>
-        <h1 class="logo">BookShelf</h1>
-    </header>
-    <main>
-      <img src="./assets/logo.png" alt="BookShelf">
-      <router-view></router-view>
-    </main>
-  </div>
+   <div id="app">
+      <m-typography>
+         <header>
+            <nav>
+               <router-link v-for="page in pages" :key="page.name" v-bind:to="page.name">{{page.name}}</router-link>
+            </nav>
+            <h1 class="logo">BookShelf</h1>
+         </header>
+         <main>
+            <img src="./assets/logo.png" alt="BookShelf">
+            <router-view></router-view>
+         </main>
+      </m-typography>
+   </div>
 </template>
 
 <script>
