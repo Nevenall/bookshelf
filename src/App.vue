@@ -1,7 +1,13 @@
 <template>
    <div id="app">
       <m-typography>
-         <header>
+         <m-toolbar ref="toolbar" fixed waterfall>
+            <m-toolbar-row shrink-center>
+               <m-toolbar-icon slot="start" icon="menu" menu-icon @click="toggleDrawer()" /> BookShelf
+            </m-toolbar-row>
+         </m-toolbar>
+
+         <!-- <header>
             <nav>
                <router-link v-for="page in pages" :key="page.name" v-bind:to="page.name">{{page.name}}</router-link>
             </nav>
@@ -10,7 +16,7 @@
          <main>
             <img src="./assets/logo.png" alt="BookShelf">
             <router-view></router-view>
-         </main>
+         </main> -->
       </m-typography>
    </div>
 </template>
@@ -28,7 +34,16 @@ export default {
   created() {
     this.pages = pages.pages;
   },
-  components: {}
+  components: {},
+  methods: {
+    toggleDrawer() {
+      this.$refs.drawer.toggle();
+    },
+    openRoute(route) {
+      this.$router.push(route);
+      this.toggleDrawer();
+    }
+  }
 };
 </script>
 
@@ -39,7 +54,7 @@ body {
 }
 
 #app {
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #7e7d81;
