@@ -1,3 +1,7 @@
-https://vuematerial.io/components/drawer
+https://vuematerial.io/components/list
 
-switching to the beta vue-material components,  they have better docs
+with expansions. 
+
+
+the navigation seems to not be working. 
+

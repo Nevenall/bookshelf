@@ -14,7 +14,7 @@
 
             <md-list>
 
-                <md-list-item v-for="page in pages" :key="page.name" @click="pushNav(page.path)">
+                <md-list-item v-for="page in pages" :key="page.name" @click="pushNav(page.name)">
                     <span class="md-list-item-text">{{page.name}}</span>
                 </md-list-item>
 
@@ -39,12 +39,13 @@ export default {
   },
   created() {
     this.pages = pages.pages;
+    console.log(pages);
   },
   components: {},
   methods: {
     pushNav(path) {
-      this.$router.push(path);
       this.showNavigation = false;
+      this.$router.push(path);
     }
   }
 };
