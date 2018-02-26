@@ -1,10 +1,10 @@
 <template>
     <div id="app">
+        <m-theme :customStyle="material">
         <m-typography>
             <m-toolbar ref="toolbar" fixed waterfall>
                 <m-toolbar-row shrink-center>
                     <m-toolbar-icon slot="start" icon="menu" menu-icon @click="toggleDrawer()" />
-
                 </m-toolbar-row>
             </m-toolbar>
             <m-drawer-temporary ref="drawer">
@@ -45,6 +45,7 @@
             <router-view></router-view>
          </main> -->
         </m-typography>
+        </m-theme>
     </div>
 </template>
 
@@ -56,7 +57,18 @@ export default {
   data() {
     return {
       pages: [],
-      initialOpen: false
+      initialOpen: false,
+       material: {
+            '--mdc-theme-primary-light': '#9162e4',
+            '--mdc-theme-primary':  '#5e35b1',
+            '--mdc-theme-primary-dark': '#280680',
+            '--mdc-theme-secondary': '#ff5722',
+            '--mdc-theme-secondary-light': '#ff8a50',
+            '--mdc-theme-secondary-dark': '#c41c00',
+            '--mdc-theme-background': '#ffffff',
+            '--mdc-theme-text-primary-on-primary': '#ffffff',
+            '--mdc-theme-text-secondary-on-secondary': '#000000'
+        }
     };
   },
   created() {
@@ -76,7 +88,8 @@ export default {
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500");
+@import url("https://cdnjs.com/libraries/normalize");
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic");
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
 body {
