@@ -1,51 +1,28 @@
 <template>
-    <div id="app">
-        <m-theme :customStyle="material">
-        <m-typography>
-            <m-toolbar ref="toolbar" fixed waterfall>
-                <m-toolbar-row shrink-center>
-                    <m-toolbar-icon slot="start" icon="menu" menu-icon @click="toggleDrawer()" />
-                </m-toolbar-row>
-            </m-toolbar>
-            <m-drawer-temporary ref="drawer">
-                <m-drawer-toolbar-spacer class="mdc-theme--primary-bg" slot="toolbarSpacer" />
-                <m-drawer-header class="mdc-theme--primary" slot="header">
-                    <m-typo-headline>
-                        Pages
-                    </m-typo-headline>
-                </m-drawer-header>
-                <m-drawer-content>
-                    <m-list>
-                        <m-list-item v-for="page in pages" :key="page.name" @click="openRoute(page.name)">
-                            {{page.name}}
-                        </m-list-item>
-                    </m-list>
-                </m-drawer-content>
-            </m-drawer-temporary>
-            <div class="demo-content">
-                <m-toolbar-fixed-adjust>
-                    <main>
-                        <m-layout-grid>
-                            <keep-alive>
-                                <router-view />
-                            </keep-alive>
-                        </m-layout-grid>
-                    </main>
-                </m-toolbar-fixed-adjust>
-            </div>
+    <div id="app" class="page-container md-layout-column">
+        <md-toolbar class="md-primary">
+            <md-button class="md-icon-button" @click="showNavigation = true">
+                <md-icon>menu</md-icon>
+            </md-button>
+            <span class="md-title">Sufficient Reason</span> > page
+        </md-toolbar>
+        <md-drawer :md-active.sync="showNavigation">
+            <md-toolbar class="md-transparent" md-elevation="0">
+                <img src="./assets/logo.png" alt="BookShelf">
+                <span class="md-title">BookShelf</span>
+            </md-toolbar>
 
-            <!-- <header>
-            <nav>
-               <router-link v-for="page in pages" :key="page.name" v-bind:to="page.name">{{page.name}}</router-link>
-            </nav>
-            <h1 class="logo">BookShelf</h1>
-         </header>
-         <main>
-            <img src="./assets/logo.png" alt="BookShelf">
+            <md-list>
+
+                <md-list-item v-for="page in pages" :key="page.name" @click="pushNav(page.path)">
+                    <span class="md-list-item-text">{{page.name}}</span>
+                </md-list-item>
+
+            </md-list>
+        </md-drawer>
+        <md-content>
             <router-view></router-view>
-         </main> -->
-        </m-typography>
-        </m-theme>
+        </md-content>
     </div>
 </template>
 
@@ -57,18 +34,7 @@ export default {
   data() {
     return {
       pages: [],
-      initialOpen: false,
-       material: {
-            '--mdc-theme-primary-light': '#9162e4',
-            '--mdc-theme-primary':  '#5e35b1',
-            '--mdc-theme-primary-dark': '#280680',
-            '--mdc-theme-secondary': '#ff5722',
-            '--mdc-theme-secondary-light': '#ff8a50',
-            '--mdc-theme-secondary-dark': '#c41c00',
-            '--mdc-theme-background': '#ffffff',
-            '--mdc-theme-text-primary-on-primary': '#ffffff',
-            '--mdc-theme-text-secondary-on-secondary': '#000000'
-        }
+      showNavigation: false
     };
   },
   created() {
@@ -76,12 +42,9 @@ export default {
   },
   components: {},
   methods: {
-    toggleDrawer() {
-      this.$refs.drawer.toggle();
-    },
-    openRoute(route) {
-      this.$router.push(route);
-      this.toggleDrawer();
+    pushNav(path) {
+      this.$router.push(path);
+      this.showNavigation = false;
     }
   }
 };
