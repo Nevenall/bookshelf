@@ -1,13 +1,40 @@
 <template>
-   <div id="app">
-      <m-typography>
-         <m-toolbar ref="toolbar" fixed waterfall>
-            <m-toolbar-row shrink-center>
-               <m-toolbar-icon slot="start" icon="menu" menu-icon @click="toggleDrawer()" /> BookShelf
-            </m-toolbar-row>
-         </m-toolbar>
+    <div id="app">
+        <m-typography>
+            <m-toolbar ref="toolbar" fixed waterfall>
+                <m-toolbar-row shrink-center>
+                    <m-toolbar-icon slot="start" icon="menu" menu-icon @click="toggleDrawer()" />
 
-         <!-- <header>
+                </m-toolbar-row>
+            </m-toolbar>
+            <m-drawer-temporary ref="drawer">
+                <m-drawer-toolbar-spacer class="mdc-theme--primary-bg" slot="toolbarSpacer" />
+                <m-drawer-header class="mdc-theme--primary" slot="header">
+                    <m-typo-headline>
+                        Pages
+                    </m-typo-headline>
+                </m-drawer-header>
+                <m-drawer-content>
+                    <m-list>
+                        <m-list-item v-for="page in pages" :key="page.name" @click="openRoute(page.name)">
+                            {{page.name}}
+                        </m-list-item>
+                    </m-list>
+                </m-drawer-content>
+            </m-drawer-temporary>
+            <div class="demo-content">
+                <m-toolbar-fixed-adjust>
+                    <main>
+                        <m-layout-grid>
+                            <keep-alive>
+                                <router-view />
+                            </keep-alive>
+                        </m-layout-grid>
+                    </main>
+                </m-toolbar-fixed-adjust>
+            </div>
+
+            <!-- <header>
             <nav>
                <router-link v-for="page in pages" :key="page.name" v-bind:to="page.name">{{page.name}}</router-link>
             </nav>
@@ -17,8 +44,8 @@
             <img src="./assets/logo.png" alt="BookShelf">
             <router-view></router-view>
          </main> -->
-      </m-typography>
-   </div>
+        </m-typography>
+    </div>
 </template>
 
 <script>
@@ -28,7 +55,8 @@ export default {
   name: "app",
   data() {
     return {
-      pages: []
+      pages: [],
+      initialOpen: false
     };
   },
   created() {
@@ -48,6 +76,9 @@ export default {
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
 body {
   margin: 3em;
   background-color: rgb(26, 11, 44);
@@ -64,7 +95,7 @@ main {
   margin-top: 40px;
 }
 
-header {
+/* header {
   margin: 0;
   height: 56px;
   padding: 0 16px 0 24px;
@@ -81,5 +112,5 @@ header span {
   font-weight: 400;
   box-sizing: border-box;
   padding-top: 16px;
-}
+} */
 </style>
