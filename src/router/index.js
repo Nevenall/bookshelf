@@ -12,7 +12,6 @@ export default new Router({
          template: `<div>${pageData.home.content}</div>`
       }
    }].concat(pageData.pages.map(p => {
-
       return {
          path: `/${p.name}`,
          name: p.name,

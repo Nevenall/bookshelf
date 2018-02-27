@@ -7,7 +7,7 @@
             <span class="md-title">Sufficient Reason</span> > page
         </md-toolbar>
         <md-drawer :md-active.sync="showNavigation">
-            <md-toolbar class="md-transparent" md-elevation="0">
+            <md-toolbar md-elevation="0">
                 <img src="./assets/logo.png" alt="BookShelf">
                 <span class="md-title">BookShelf</span>
             </md-toolbar>
@@ -51,12 +51,28 @@ export default {
 };
 </script>
 
-<style>
-@import url("https://cdnjs.com/libraries/normalize");
+<style >
+/* @import url("https://cdnjs.com/libraries/normalize"); */
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic");
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
-body {
+.page-container {
+  min-height: 300px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(#000, 0.12);
+}
+
+.md-drawer {
+  width: 230px;
+  max-width: calc(100vw - 125px);
+}
+
+.md-content {
+  padding: 16px;
+}
+
+/* body {
   margin: 3em;
   background-color: rgb(26, 11, 44);
 }
@@ -68,11 +84,13 @@ body {
   color: #7e7d81;
 }
 
+.md-button {background-color:#7e7d81;}
+
 main {
   margin-top: 40px;
 }
 
-/* header {
+header {
   margin: 0;
   height: 56px;
   padding: 0 16px 0 24px;
