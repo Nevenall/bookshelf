@@ -1,28 +1,28 @@
 <template>
-    <div id="app" class="page-container md-layout-column">
-        <md-toolbar class="md-primary">
-            <md-button class="md-icon-button" @click="showNavigation = true">
-                <md-icon>menu</md-icon>
-            </md-button>
-            <span class="md-title">Sufficient Reason</span> > page
-        </md-toolbar>
-        <md-drawer :md-active.sync="showNavigation">
-            <md-toolbar md-elevation="0">
-                <img src="./assets/logo.png" alt="BookShelf">
-                <span class="md-title">BookShelf</span>
+    <div id="app">
+        <div class="page-container md-layout-column">
+
+            <md-toolbar class="md-primary">
+                <md-button class="md-icon-button" @click="showNavigation = true">
+                    <md-icon>menu</md-icon>
+                </md-button>
+                <span class="md-title">Sufficient Reason</span>
             </md-toolbar>
-
-            <md-list>
-
-                <md-list-item v-for="page in pages" :key="page.name" @click="pushNav(page.name)">
-                    <span class="md-list-item-text">{{page.name}}</span>
-                </md-list-item>
-
-            </md-list>
-        </md-drawer>
-        <md-content>
-            <router-view></router-view>
-        </md-content>
+            <md-drawer :md-active.sync="showNavigation">
+                <md-toolbar md-elevation="0">
+                    <img src="./assets/logo.png" alt="BookShelf">
+                    <span class="md-title">BookShelf</span>
+                </md-toolbar>
+                <md-list>
+                    <md-list-item v-for="page in pages" :key="page.name" @click="pushNav(page.name)">
+                        <span class="md-list-item-text">{{page.name}}</span>
+                    </md-list-item>
+                </md-list>
+            </md-drawer>
+            <md-content>
+                <router-view></router-view>
+            </md-content>
+        </div>
     </div>
 </template>
 
@@ -39,7 +39,7 @@ export default {
   },
   created() {
     this.pages = pages.pages;
-    console.log(pages);
+    // console.log(pages);
   },
   components: {},
   methods: {
@@ -51,28 +51,16 @@ export default {
 };
 </script>
 
-<style >
-/* @import url("https://cdnjs.com/libraries/normalize"); */
+<style>
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic");
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
-.page-container {
-  min-height: 300px;
-  overflow: hidden;
-  position: relative;
-  border: 1px solid rgba(#000, 0.12);
-}
 
-.md-drawer {
-  width: 230px;
-  max-width: calc(100vw - 125px);
-}
 
-.md-content {
-  padding: 16px;
-}
+/* @import 'vue-material.min.css' */
 
-/* body {
+/* 
+body {
   margin: 3em;
   background-color: rgb(26, 11, 44);
 }
@@ -84,7 +72,9 @@ export default {
   color: #7e7d81;
 }
 
-.md-button {background-color:#7e7d81;}
+.md-button {
+  background-color: #7e7d81;
+}
 
 main {
   margin-top: 40px;
