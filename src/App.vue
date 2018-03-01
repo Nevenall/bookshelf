@@ -1,29 +1,29 @@
 <template>
-    <div id="app">
-        <div class="page-container md-layout-column">
+   <div id="app">
+      <div class="page-container md-layout-column">
 
-            <md-toolbar class="md-primary">
-                <md-button class="md-icon-button" @click="showNavigation = true">
-                    <md-icon>menu</md-icon>
-                </md-button>
-                <span class="md-title">Sufficient Reason</span>
+         <md-toolbar class="md-primary">
+            <md-button class="md-icon-button" @click="showNavigation = true">
+               <md-icon>menu</md-icon>
+            </md-button>
+            <span class="md-title">Sufficient Reason</span>
+         </md-toolbar>
+         <md-drawer :md-active.sync="showNavigation">
+            <md-toolbar md-elevation="0">
+               <img src="./assets/logo.png" alt="BookShelf">
+               <span class="md-title">BookShelf</span>
             </md-toolbar>
-            <md-drawer :md-active.sync="showNavigation">
-                <md-toolbar md-elevation="0">
-                    <img src="./assets/logo.png" alt="BookShelf">
-                    <span class="md-title">BookShelf</span>
-                </md-toolbar>
-                <md-list>
-                    <md-list-item v-for="page in pages" :key="page.name" @click="pushNav(page.name)">
-                        <span class="md-list-item-text">{{page.name}}</span>
-                    </md-list-item>
-                </md-list>
-            </md-drawer>
-            <md-content>
-                <router-view></router-view>
-            </md-content>
-        </div>
-    </div>
+            <md-list>
+               <md-list-item v-for="page in pages" :key="page.name" @click="pushNav(page.name)">
+                  <span class="md-list-item-text">{{page.name}}</span>
+               </md-list-item>
+            </md-list>
+         </md-drawer>
+         <md-content>
+            <router-view></router-view>
+         </md-content>
+      </div>
+   </div>
 </template>
 
 <script>
@@ -39,7 +39,7 @@ export default {
   },
   created() {
     this.pages = pages.pages;
-    // console.log(pages);
+    console.log(pages);
   },
   components: {},
   methods: {
@@ -55,9 +55,13 @@ export default {
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic");
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
-
-
 /* @import 'vue-material.min.css' */
+
+.md-content {
+  padding: 5em;
+  text-align: justify;
+  text-justify:inter-word;
+}
 
 /* 
 body {
