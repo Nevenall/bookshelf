@@ -55,12 +55,10 @@ export default {
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic");
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
-/* @import 'vue-material.min.css' */
 
 .md-content {
   padding: 5em;
   text-align: justify;
-  text-justify:inter-word;
 }
 
 /* 
