@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import pageData from '@/pagedata'
+import book from '@/book'
 
 Vue.use(Router)
 

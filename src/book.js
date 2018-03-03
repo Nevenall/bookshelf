@@ -57,6 +57,55 @@ var linq = require('linq')
 // maybe call readme the introduction of the book?
 
 
+// 
+
+
+// each path is about the sections
+
+// represents a book
+class Book {
+
+   // pages is an array of Page objects
+   constructor(title, pages) {
+      this.title = title;
+      this.allPages = pages;
+      this.sections = [];
+
+      pages.forEach(page => {
+         sectionParts = page.path.split("/");
+         // ['.','readme>html"
+
+      });
+
+
+
+   }
+
+   
+
+}
+
+class Section {
+   constructor(name){
+      this.name = name;
+      this.pages = [];
+      this.sections = [];
+   }
+}
+
+
+// represents a page in the book
+class Page {
+   
+   //name, path to the page, contents of the page
+   constructor(name, path, content) {
+      this.name = name;
+      this.path = path;
+      this.content = content;
+   }
+}
+
+
 
 var pgs = pages.keys().map(function (key) {
 
