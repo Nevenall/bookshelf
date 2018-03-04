@@ -1,6 +1,20 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import book from '@/book'
+import Path from 'path'
+import { Book, Section, Page } from '@/book'
+
+var rawPages = require.context('@/pages', true)
+
+var pages = rawPages.keys().map((key) => {
+   return {
+      name: path.win32.basename(key, '.html'),
+      path: key,
+      contents: rawPages(key)
+   }
+});
+
+var b = new Book('Sufficient Reason', rawPages)
+
 
 Vue.use(Router)
 

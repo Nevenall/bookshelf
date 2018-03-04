@@ -1,6 +1,5 @@
-// data model for a book and it's contents
-
 'use strict'
+
 
 class Book {
    // pages is an array of Page objects
@@ -54,8 +53,19 @@ class Page {
 }
 
 
-export {
-   Book,
-   Section,
-   Page
-}
+
+
+var pages = [
+   new Page("one", "./one.html", "page one content"),
+   new Page("two", "./two.html", "page two content"),
+   new Page("three", "./a/three.html", "page three content"),
+   new Page("four", "./b/four.html", "page four content"),
+   new Page("five", "./b/ab/five.html", "page five content")
+];
+
+
+var testBook = new Book('test', pages);
+
+var json = JSON.stringify(testBook, null, 2)
+
+console.log(json);
