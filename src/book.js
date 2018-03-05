@@ -14,7 +14,7 @@ class Book {
       this.pages = [];
       this.frontPage = new Page("FrontPage", "./readme.html", `<h2>${title}</h2>`);
 
-      pages.forEach(page => {
+      this.pages.forEach(page => {
 
          if(page.path.toLowerCase() == "./readme.html") {
             this.frontPage = page;
@@ -69,8 +69,9 @@ var pages = rawPages.keys().map((key) => {
       name: path.basename(key, '.html'),
       path: key,
       contents: rawPages(key)
+      
    }
 });
 
-
-export default new Book('Sufficient Reason', rawPages)
+// debugger;
+export default new Book('Sufficient Reason', pages)

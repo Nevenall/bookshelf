@@ -1,43 +1,28 @@
 <template>
-    <div id="app">
-        <div class="page-container md-layout-column">
-            <md-toolbar class="md-primary">
-                <md-button class="md-icon-button" @click="showNavigation = true">
-                    <md-icon>menu</md-icon>
-                </md-button>
-                <span class="md-title">BookShelf >> {{book.title}}</span>
+   <div id="app">
+      <div class="page-container md-layout-column">
+         <md-toolbar class="md-primary">
+            <md-button class="md-icon-button" @click="showNavigation = true">
+               <md-icon>menu</md-icon>
+            </md-button>
+            <span class="md-title">BookShelf >> {{book.title}}</span>
+         </md-toolbar>
+         <md-drawer :md-active.sync="showNavigation">
+            <md-toolbar md-elevation="0">
+               <img src="./assets/logo.png" alt="BookShelf">
+               <span class="md-title">{{book.title}}</span>
             </md-toolbar>
-            <md-drawer :md-active.sync="showNavigation">
-                <md-toolbar md-elevation="0">
-                    <img src="./assets/logo.png" alt="BookShelf">
-                    <span class="md-title">{{book.title}}</span>
-                </md-toolbar>
 
-                <!-- 
-                    book
-                        pages
-                        sections
-                            section 1 
-                                pages
-                                section 1.1
-                                section 1.2
-                            section 2
-                                pages
-                                section 2.1
-                                pages
+            <ul>
+               <li v-for="page in book.pages" :key="page.path">{{page.name}}</li>
+               <ul v-for="section in book.sections" :key="section.name">
+                  <li v-for="nestedPage in section.pages" :key="nestedPage.name">
+                     {{nestedPage}}
+                  </li>
+               </ul>
+            </ul>
 
-                 -->
-
-                <ul>
-                    <li v-for="page in book.pages" :key="page.path">{{page.name}}</li>
-                    <ul v-for="section in book.sections" :key="section.name">
-                        <li v-for="nestedPages in section.pages" :key="nestedPages.name">
-
-                        </li>
-                    </ul>
-                </ul>
-
-                <!-- <md-list>
+            <!-- <md-list>
 
                     <md-list slot=" md-expand ">
                         <md-list-item class="md-insert ">
@@ -51,16 +36,16 @@
 
                 </md-list> -->
 
-            </md-drawer>
-            <md-content>
-                <router-view></router-view>
-            </md-content>
-        </div>
-    </div>
+         </md-drawer>
+         <md-content>
+            <router-view></router-view>
+         </md-content>
+      </div>
+   </div>
 </template>
 
 <script>
-import Book from "./book";
+import Book from "@/book";
 
 export default {
   name: "app",
@@ -73,7 +58,7 @@ export default {
   },
   created() {
     this.book = Book;
-    console.log(book);
+    console.log(this.book);
   },
   components: {},
   methods: {
