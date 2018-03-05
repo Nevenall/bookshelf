@@ -5,18 +5,52 @@
                 <md-button class="md-icon-button" @click="showNavigation = true">
                     <md-icon>menu</md-icon>
                 </md-button>
-                <span class="md-title">Sufficient Reason</span>
+                <span class="md-title">BookShelf >> {{book.title}}</span>
             </md-toolbar>
             <md-drawer :md-active.sync="showNavigation">
                 <md-toolbar md-elevation="0">
                     <img src="./assets/logo.png" alt="BookShelf">
-                    <span class="md-title">BookShelf</span>
+                    <span class="md-title">{{book.title}}</span>
                 </md-toolbar>
-                <md-list>
-                    <md-list-item v-for="page in pages" :key="page.name" @click="pushNav(page.name)">
-                        <span class="md-list-item-text">{{page.name}}</span>
+
+                <!-- 
+                    book
+                        pages
+                        sections
+                            section 1 
+                                pages
+                                section 1.1
+                                section 1.2
+                            section 2
+                                pages
+                                section 2.1
+                                pages
+
+                 -->
+
+                <ul>
+                    <li v-for="page in book.pages" :key="page.path">{{page.name}}</li>
+                    <ul v-for="section in book.sections" :key="section.name">
+                        <li v-for="nestedPages in section.pages" :key="nestedPages.name">
+
+                        </li>
+                    </ul>
+                </ul>
+
+                <!-- <md-list>
+
+                    <md-list slot=" md-expand ">
+                        <md-list-item class="md-insert ">
+
+                        </md-list-item>
+                    </md-list>
+
+                    <md-list-item v-for="page in pages " :key="page.name " @click="pushNav(page.name) ">
+                        <span class="md-list-item-text ">{{page.name}}</span>
                     </md-list-item>
-                </md-list>
+
+                </md-list> -->
+
             </md-drawer>
             <md-content>
                 <router-view></router-view>
@@ -26,19 +60,20 @@
 </template>
 
 <script>
-import pages from "./pagedata";
+import Book from "./book";
 
 export default {
   name: "app",
   data() {
     return {
-      pages: [],
+      book: {},
+
       showNavigation: false
     };
   },
   created() {
-    this.pages = pages.pages;
-    console.log(pages);
+    this.book = Book;
+    console.log(book);
   },
   components: {},
   methods: {

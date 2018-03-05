@@ -1,6 +1,9 @@
 // data model for a book and it's contents
-
 'use strict'
+
+import path from 'path'
+var rawPages = require.context('@/pages', true)
+
 
 class Book {
    // pages is an array of Page objects
@@ -9,8 +12,15 @@ class Book {
       this.allPages = pages;
       this.sections = [];
       this.pages = [];
+      this.frontPage = new Page("FrontPage", "./readme.html", `<h2>${title}</h2>`);
 
       pages.forEach(page => {
+
+         if(page.path.toLowerCase() == "./readme.html") {
+            this.frontPage = page;
+            this.frontPage.name = 'FrontPage';
+         }
+
          var parts = page.path.split("/");
          if(parts.length < 2) {
             //noop
@@ -54,8 +64,13 @@ class Page {
 }
 
 
-export {
-   Book,
-   Section,
-   Page
-}
+var pages = rawPages.keys().map((key) => {
+   return {
+      name: path.basename(key, '.html'),
+      path: key,
+      contents: rawPages(key)
+   }
+});
+
+
+export default new Book('Sufficient Reason', rawPages)

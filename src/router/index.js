@@ -1,33 +1,23 @@
+// routing for BookShelf
+'use strict'
+
 import Vue from 'vue'
 import Router from 'vue-router'
-import Path from 'path'
-import { Book, Section, Page } from '@/book'
-
-var rawPages = require.context('@/pages', true)
-
-var pages = rawPages.keys().map((key) => {
-   return {
-      name: path.win32.basename(key, '.html'),
-      path: key,
-      contents: rawPages(key)
-   }
-});
-
-var b = new Book('Sufficient Reason', rawPages)
-
+import { Book } from '@/book'
 
 Vue.use(Router)
+
 
 export default new Router({
    routes: [{
       path: '/',
       name: 'home',
       component: {
-         template: `<div>${pageData.home.content}</div>`
+         template: `<div>${Book.frontPage.content}</div>`
       }
-   }].concat(pageData.pages.map(p => {
+   }].concat(Book.allPages.find(p => p.name !== "FrontPage").map(p => {
       return {
-         path: `/${p.name}`,
+         path: `/${p.path.replace('./', '')}`,
          name: p.name,
          component: {
             template: `<div>${p.content}</div>`
