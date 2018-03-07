@@ -65,7 +65,8 @@ var pages = [
 
 
 var testBook = new Book('test', pages);
+console.log(testBook);
 
-var json = JSON.stringify(testBook, null, 2)
+// var json = JSON.stringify(testBook, null, 2)
 
-console.log(json);
+// console.log(json);

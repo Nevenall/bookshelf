@@ -12,20 +12,13 @@ class Book {
       this.allPages = pages;
       this.sections = [];
       this.pages = [];
-      this.frontPage = new Page("FrontPage", "./readme.html", `<h2>${title}</h2>`);
-
-      this.pages.forEach(page => {
-
-         if(page.path.toLowerCase() == "./readme.html") {
-            this.frontPage = page;
-            this.frontPage.name = 'FrontPage';
-         }
-
+      this.frontPage = new Page("FrontPage", "./README.html", `<h2>${title}</h2>`);
+      
+      pages.forEach(page => {
          var parts = page.path.split("/");
-         if(parts.length < 2) {
+         if (parts.length < 2) {
             //noop
-         }
-         else if(parts.length == 2) {
+         } else if (parts.length == 2) {
             this.pages.push(page);
          } else {
             var sectionParts = parts.splice(1, parts.length - 2);
@@ -33,7 +26,7 @@ class Book {
             var current = null;
             sectionParts.forEach(newSection => {
                current = currentSections.find(s => s.name === newSection);
-               if(current == null) {
+               if (current == null) {
                   current = new Section(newSection);
                   currentSections.push(current);
                }
@@ -65,13 +58,8 @@ class Page {
 
 
 var pages = rawPages.keys().map((key) => {
-   return {
-      name: path.basename(key, '.html'),
-      path: key,
-      contents: rawPages(key)
-      
-   }
+   return new Page(path.basename(key, '.html'), key, rawPages(key))
 });
 
-// debugger;
+
 export default new Book('Sufficient Reason', pages)

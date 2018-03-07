@@ -5,8 +5,6 @@ import Book from '@/book'
 
 Vue.use(Router)
 
-// debugger;
-
 export default new Router({
    routes: [{
       path: '/',

@@ -5,37 +5,29 @@
             <md-button class="md-icon-button" @click="showNavigation = true">
                <md-icon>menu</md-icon>
             </md-button>
-            <span class="md-title">BookShelf >> {{book.title}}</span>
+            <span class="md-title">BookShelf&nbsp;>&nbsp;{{book.title}}</span>
          </md-toolbar>
          <md-drawer :md-active.sync="showNavigation">
             <md-toolbar md-elevation="0">
                <img src="./assets/logo.png" alt="BookShelf">
                <span class="md-title">{{book.title}}</span>
             </md-toolbar>
-
-            <ul>
-               <li v-for="page in book.pages" :key="page.path">{{page.name}}</li>
-               <ul v-for="section in book.sections" :key="section.name">
-                  <li v-for="nestedPage in section.pages" :key="nestedPage.name">
-                     {{nestedPage}}
-                  </li>
-               </ul>
-            </ul>
-
-            <!-- <md-list>
-
-                    <md-list slot=" md-expand ">
-                        <md-list-item class="md-insert ">
-
-                        </md-list-item>
-                    </md-list>
-
-                    <md-list-item v-for="page in pages " :key="page.name " @click="pushNav(page.name) ">
-                        <span class="md-list-item-text ">{{page.name}}</span>
-                    </md-list-item>
-
-                </md-list> -->
-
+            <md-list>
+               <md-list-item>
+                  <span class="md-list-item-text">{{book.title}}</span>
+               </md-list-item>
+               <md-list-item class="md-inset" md-expand v-for="section in book.sections" :key="section.name">
+                  <span class="md-list-item-text">{{section.name}}</span>
+                  <md-list slot="md-expand">
+                     <md-list-item class="md-insert">
+                        <span class="md-list-item-text">nested pages go here</span>
+                     </md-list-item>
+                  </md-list>
+               </md-list-item>
+               <md-list-item v-for="page in book.pages" :key="page.path">
+                  <span class="md-list-item-text">{{page.name}}</span>
+               </md-list-item>
+            </md-list>
          </md-drawer>
          <md-content>
             <router-view></router-view>
@@ -52,13 +44,11 @@ export default {
   data() {
     return {
       book: {},
-
       showNavigation: false
     };
   },
   created() {
     this.book = Book;
-    console.log(this.book);
   },
   components: {},
   methods: {
