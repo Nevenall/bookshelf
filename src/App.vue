@@ -8,11 +8,14 @@
             <span class="md-title">BookShelf&nbsp;>&nbsp;{{book.title}}</span>
          </md-toolbar>
          <md-drawer :md-active.sync="showNavigation">
-            <md-toolbar md-elevation="0" @click="pushNav('/')">
+            <md-toolbar md-elevation="0">
                <img src="./assets/logo.png" alt="BookShelf">
-               <span class="md-title">{{book.title}}</span>
+               <!-- <span class="md-title">{{book.title}}</span> -->
             </md-toolbar>
             <md-list>
+               <md-list-item @click="pushNav('./')">
+                  <h3>{{book.title}}</h3>
+               </md-list-item>
                <md-list-item md-expand v-for="section in book.sections" :key="section.name">
                   <span class="md-list-item-text">{{section.name}}</span>
                   <md-list slot="md-expand">
@@ -50,8 +53,8 @@ export default {
   components: {},
   methods: {
     pushNav(path) {
-       // note - a little hack to correct pathing issues. 
-       var p = path.substring(1);
+      // note - a little hack to correct pathing issues.
+      var p = path.substring(1);
       this.showNavigation = false;
       this.$router.push(p);
     }
