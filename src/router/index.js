@@ -13,10 +13,6 @@ export default new Router({
          template: `<div>${Book.frontPage.content}</div>`
       }
    }].concat(Book.allPages.map(p => {
-
-      if (p.name === "FrontPage") {
-         return false;
-      }
       return {
          path: `${p.path.substring(1)}`,
          name: p.name,

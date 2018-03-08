@@ -13,8 +13,13 @@ class Book {
       this.sections = [];
       this.pages = [];
       this.frontPage = new Page("FrontPage", "./README.html", `<h2>${title}</h2>`);
-      
+
       pages.forEach(page => {
+
+         if (page.path.toLowerCase() === "./readme.html") {
+            this.frontPage = page;
+         }
+
          var parts = page.path.split("/");
          if (parts.length < 2) {
             //noop
