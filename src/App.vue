@@ -8,7 +8,7 @@
             <span class="md-title">BookShelf&nbsp;>&nbsp;{{book.title}}</span>
          </md-toolbar>
          <md-drawer :md-active.sync="showNavigation">
-            <md-toolbar md-elevation="0">
+            <md-toolbar md-elevation="0" @click="pushNav('/')">
                <img src="./assets/logo.png" alt="BookShelf">
                <span class="md-title">{{book.title}}</span>
             </md-toolbar>
@@ -16,12 +16,12 @@
                <md-list-item md-expand v-for="section in book.sections" :key="section.name">
                   <span class="md-list-item-text">{{section.name}}</span>
                   <md-list slot="md-expand">
-                     <md-list-item class="md-inset" v-for="nestedPage in section.pages" :key="nestedPage.path" @click="pushNav(nestedPage)">
+                     <md-list-item class="md-inset" v-for="nestedPage in section.pages" :key="nestedPage.path" @click="pushNav(nestedPage.path)">
                         <span class="md-list-item-text">{{nestedPage.name}}</span>
                      </md-list-item>
                   </md-list>
                </md-list-item>
-               <md-list-item v-for="page in book.pages" :key="page.path" @click="pushNav(page)">
+               <md-list-item v-for="page in book.pages" :key="page.path" @click="pushNav(page.path)">
                   <span class="md-list-item-text">{{page.name}}</span>
                </md-list-item>
             </md-list>
@@ -49,9 +49,11 @@ export default {
   },
   components: {},
   methods: {
-    pushNav(page) {
+    pushNav(path) {
+       // note - a little hack to correct pathing issues. 
+       var p = path.substring(1);
       this.showNavigation = false;
-      this.$router.push(page.path);
+      this.$router.push(p);
     }
   }
 };
