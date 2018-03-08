@@ -13,18 +13,15 @@
                <span class="md-title">{{book.title}}</span>
             </md-toolbar>
             <md-list>
-               <md-list-item>
-                  <span class="md-list-item-text">{{book.title}}</span>
-               </md-list-item>
-               <md-list-item class="md-inset" md-expand v-for="section in book.sections" :key="section.name">
+               <md-list-item md-expand v-for="section in book.sections" :key="section.name">
                   <span class="md-list-item-text">{{section.name}}</span>
                   <md-list slot="md-expand">
-                     <md-list-item class="md-insert">
-                        <span class="md-list-item-text">nested pages go here</span>
+                     <md-list-item class="md-inset" v-for="nestedPage in section.pages" :key="nestedPage.path" @click="pushNav(nestedPage)">
+                        <span class="md-list-item-text">{{nestedPage.name}}</span>
                      </md-list-item>
                   </md-list>
                </md-list-item>
-               <md-list-item v-for="page in book.pages" :key="page.path">
+               <md-list-item v-for="page in book.pages" :key="page.path" @click="pushNav(page)">
                   <span class="md-list-item-text">{{page.name}}</span>
                </md-list-item>
             </md-list>
@@ -52,9 +49,9 @@ export default {
   },
   components: {},
   methods: {
-    pushNav(path) {
+    pushNav(page) {
       this.showNavigation = false;
-      this.$router.push(path);
+      this.$router.push(page.path);
     }
   }
 };
