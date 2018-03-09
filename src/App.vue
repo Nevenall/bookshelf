@@ -10,7 +10,6 @@
          <md-drawer :md-active.sync="showNavigation">
             <md-toolbar md-elevation="0">
                <img src="./assets/logo.png" alt="BookShelf">
-               <!-- <span class="md-title">{{book.title}}</span> -->
             </md-toolbar>
             <md-list>
                <md-list-item @click="pushNav('./')">
