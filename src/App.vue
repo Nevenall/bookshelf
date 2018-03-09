@@ -5,7 +5,7 @@
             <md-button class="md-icon-button" @click="showNavigation = true">
                <md-icon>menu</md-icon>
             </md-button>
-            <span class="md-title">BookShelf&nbsp;>&nbsp;{{book.title}}</span>
+            <span class="md-title">BookShelf<md-icon>keyboard_arrow_right</md-icon>{{book.title}}</span>
          </md-toolbar>
          <md-drawer :md-active.sync="showNavigation">
             <md-toolbar md-elevation="0">
