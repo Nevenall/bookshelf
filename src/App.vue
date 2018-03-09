@@ -70,7 +70,7 @@ export default {
   height: 100vh;
 }
 
-.md-content {
+.md-app-content {
   padding: 7vw;
   text-align: justify;
 }
