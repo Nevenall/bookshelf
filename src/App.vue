@@ -1,19 +1,20 @@
 <template>
-   <div id="app">
-      <div class="page-container md-layout-column">
-         <md-toolbar class="md-primary">
+   <div id="app" class="page-container">
+      <md-app md-waterfall md-mode="fixed">
+         <md-app-toolbar class="md-primary">
             <md-button class="md-icon-button" @click="showNavigation = true">
                <md-icon>menu</md-icon>
             </md-button>
-            <span class="md-title">BookShelf<md-icon>keyboard_arrow_right</md-icon>{{book.title}}</span>
-         </md-toolbar>
-         <md-drawer :md-active.sync="showNavigation">
+            <span class="md-title">BookShelf
+               <md-icon>keyboard_arrow_right</md-icon>{{book.title}}</span>
+         </md-app-toolbar>
+         <md-app-drawer :md-active.sync="showNavigation">
             <md-toolbar md-elevation="0">
                <img src="./assets/logo.png" alt="BookShelf">
             </md-toolbar>
             <md-list>
                <md-list-item @click="pushNav('./')">
-                  <h3>{{book.title}}</h3>
+                  <h2>{{book.title}}</h2>
                </md-list-item>
                <md-list-item md-expand v-for="section in book.sections" :key="section.name">
                   <span class="md-list-item-text">{{section.name}}</span>
@@ -27,11 +28,11 @@
                   <span class="md-list-item-text">{{page.name}}</span>
                </md-list-item>
             </md-list>
-         </md-drawer>
-         <md-content>
+         </md-app-drawer>
+         <md-app-content>
             <router-view></router-view>
-         </md-content>
-      </div>
+         </md-app-content>
+      </md-app>
    </div>
 </template>
 
@@ -65,8 +66,12 @@ export default {
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic");
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
+.md-app {
+  height: 100vh;
+}
+
 .md-content {
-  padding: 5em;
+  padding: 7vw;
   text-align: justify;
 }
 
