@@ -6,23 +6,23 @@ import Book from '@/book'
 Vue.use(Router)
 
 export default new Router({
+   mode: "history",
    routes: [{
       path: '/',
-      name: 'home',
       component: {
          template: `<div>${Book.frontPage.content}</div>`
       }
    }].concat(Book.allPages.map(p => {
       return {
-         path: `${p.path.substring(1)}`,
-         name: p.name,
+         path: `${p.path.substring(1).replace(/ /g, "-")}`,
          component: {
             template: `<div>${p.content}</div>`
          }
       }
    })),
    scrollBehavior(to, from, savedPosition) {
-      if (savedPosition) {
+      if(savedPosition) {
+         // debugger;
          return savedPosition
       } else {
          return {
