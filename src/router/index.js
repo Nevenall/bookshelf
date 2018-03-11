@@ -5,8 +5,8 @@ import Book from '@/book'
 
 Vue.use(Router)
 
-export default new Router({
-   mode: "history",
+var router = new Router({
+
    routes: [{
       path: '/',
       component: {
@@ -20,9 +20,9 @@ export default new Router({
          }
       }
    })),
+
    scrollBehavior(to, from, savedPosition) {
       if(savedPosition) {
-         // debugger;
          return savedPosition
       } else {
          return {
@@ -31,4 +31,13 @@ export default new Router({
          }
       }
    }
-})
+});
+
+
+
+// router.beforeEach((to, from, next) => {
+//    console.log(`${from.fullPath} => ${to.fullPath}`);
+//    next();
+// });
+
+export default router
