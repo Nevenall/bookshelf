@@ -71,7 +71,8 @@ export default {
 }
 
 .md-app-content {
-  padding: 7vw !important;
+  padding-right: 7vw !important;
+  padding-left: 7vw !important;
   text-align: justify;
 }
 

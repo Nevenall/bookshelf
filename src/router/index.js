@@ -20,5 +20,15 @@ export default new Router({
             template: `<div>${p.content}</div>`
          }
       }
-   }))
+   })),
+   scrollBehavior(to, from, savedPosition) {
+      if (savedPosition) {
+         return savedPosition
+      } else {
+         return {
+            x: 0,
+            y: 0
+         }
+      }
+   }
 })
