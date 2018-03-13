@@ -64,7 +64,21 @@ module.exports = {
          {
             test: /\.html$/,
             include: [resolve('src/pages')],
-            loader: 'html-loader'
+            use: [{
+               loader: 'html-loader',
+               options: {
+                  minimize: true,
+                  removeComments: false,
+                  collapseWhitespace: false
+               }
+            }, {
+               loader: 'string-replace-loader',
+               options: {
+                  search: 'href="/',
+                  replace: 'href="#/',
+                  flags: 'i'
+               }
+            }]
          }
       ]
    }
