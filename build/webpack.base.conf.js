@@ -68,7 +68,7 @@ module.exports = {
             loader: 'html-loader',
             options: {
                minimize: true,
-               removeComments: false,
+               removeComments: true,
                collapseWhitespace: false
             }
          }, {
