@@ -15,9 +15,7 @@
         {
             "type": "npm",
             "script": "dev",
-            "problemMatcher": [
-                "$node-sass"
-            ],
+            "problemMatcher":[]
         }
     ]
 }
