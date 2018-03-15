@@ -39,15 +39,6 @@
 <script>
 import Book from "@/book";
 
-// browser.webNavigation.onBeforeNavigate.addListener(details => {
-//   console.log(details);
-// });
-
-// window.addEventListener("beforeunload", event => {
-//   debugger;
-//   console.log(event.target);
-// });
-
 export default {
   name: "app",
   data() {

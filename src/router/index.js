@@ -1,12 +1,12 @@
 // routing for BookShelf
 import Vue from 'vue'
 import Router from 'vue-router'
+import vueScrollBehavior from 'vue-scroll-behavior'
 import Book from '@/book'
 
 Vue.use(Router)
 
 var router = new Router({
-
    routes: [{
       path: '/',
       component: {
@@ -19,25 +19,11 @@ var router = new Router({
             template: `<div>${p.content}</div>`
          }
       }
-   })),
-
-   scrollBehavior(to, from, savedPosition) {
-      if(savedPosition) {
-         return savedPosition
-      } else {
-         return {
-            x: 0,
-            y: 0
-         }
-      }
-   }
+   }))
 });
 
-
-
-// router.beforeEach((to, from, next) => {
-//    console.log(`${from.fullPath} => ${to.fullPath}`);
-//    next();
-// });
+Vue.use(vueScrollBehavior, {
+   router: router
+})
 
 export default router
