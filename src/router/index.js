@@ -1,7 +1,6 @@
 // routing for BookShelf
 import Vue from 'vue'
 import Router from 'vue-router'
-import vueScrollBehavior from 'vue-scroll-behavior'
 import Book from '@/book'
 
 Vue.use(Router)
@@ -21,9 +20,5 @@ var router = new Router({
       }
    }))
 });
-
-Vue.use(vueScrollBehavior, {
-   router: router
-})
 
 export default router
