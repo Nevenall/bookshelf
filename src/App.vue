@@ -9,8 +9,8 @@
                <md-icon>keyboard_arrow_right</md-icon>{{book.title}}</span>
          </md-app-toolbar>
          <md-app-drawer :md-active.sync="showNavigation">
-            <md-toolbar class="md-accent" md-elevation="0">
-               <img src="./assets/logo.png" alt="BookShelf">
+            <md-toolbar class="md-primary" md-elevation="0">
+               <img src="./assets/mage20.png" alt="BookShelf">
             </md-toolbar>
             <md-list>
                <md-list-item @click="pushNav('./')">
@@ -69,10 +69,10 @@ export default {
 @import "~vue-material/dist/theme/engine";
 
 @include md-register-theme("default", (
-  primary: #4f1d76, 
-  accent: #DFD388, 
+  primary: #200a33, 
+  accent: rgb(245, 214, 11), 
 
-  //theme: dark
+  theme: dark
 ));
 
 @import "~vue-material/dist/theme/all";
@@ -84,42 +84,5 @@ export default {
   padding-left: 7vw !important;
   text-align: justify;
 }
-/* body {
-  margin: 3em;
-  background-color: rgb(26, 11, 44);
-}
 
-#app {
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #7e7d81;
-}
-
-.md-button {
-  background-color: #7e7d81;
-}
-
-main {
-  margin-top: 40px;
-}
-
-header {
-  margin: 0;
-  height: 56px;
-  padding: 0 16px 0 24px;
-  background-color: #35495e;
-  color: #ffffff;
-}
-
-header span {
-  display: block;
-  position: relative;
-  font-size: 20px;
-  line-height: 1;
-  letter-spacing: 0.02em;
-  font-weight: 400;
-  box-sizing: border-box;
-  padding-top: 16px;
-} */
 </style>
