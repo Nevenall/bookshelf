@@ -18,6 +18,27 @@ Delete or edit `firebase.json` and `.travis.yml` to fit your own CI/Hosting need
 
 Style your application however you want. 
 
+## Forking Your Own Repo
+
+Thank you [Mike Zrimseks!](https://medium.com/@mikezrimsek/fork-your-own-github-repository-19ad4582b50a)
+
+```
+//clone your new repository
+git clone <new repository>.git
+
+//navigate to the repository root
+cd <new repository>
+
+//add a reference to your original repository
+git remote add upstream <original repository>.git
+
+//pull all code from the original repository
+git pull upstream master
+
+//push all code to the new repository
+git push origin master
+```
+
 ## What You Get
 
 ### Navigation

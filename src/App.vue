@@ -69,10 +69,8 @@ export default {
 @import "~vue-material/dist/theme/engine";
 
 @include md-register-theme("default", (
-  primary: #200a33, 
-  accent: rgb(245, 214, 11), 
-
-  theme: dark
+   primary: md-get-palette-color(blue, A200), 
+   accent: md-get-palette-color(red, A200) 
 ));
 
 @import "~vue-material/dist/theme/all";
@@ -84,5 +82,4 @@ export default {
   padding-left: 7vw !important;
   text-align: justify;
 }
-
 </style>
