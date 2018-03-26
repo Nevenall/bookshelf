@@ -4,6 +4,9 @@ node_js:
 install:
   - npm i -g npm@5.7.1
   - npm ci
+branches:
+  only:
+  - master
 script:
   - npm run build
 deploy:
