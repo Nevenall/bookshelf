@@ -10,7 +10,7 @@
          </md-app-toolbar>
          <md-app-drawer :md-active.sync="showNavigation">
             <md-toolbar class="md-primary" md-elevation="0">
-               <img src="./assets/mage20.png" alt="BookShelf">
+               <img src="./assets/logo.png" alt="BookShelf">
             </md-toolbar>
             <md-list>
                <md-list-item @click="pushNav('./')">
