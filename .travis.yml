@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - node
 install:
-  - npm i npm
+  - npm i -g npm
   - npm ci
 branches:
   only:
