@@ -7,6 +7,9 @@ install:
 branches:
   only:
   - master
+cache:
+  directories:
+    - "node_modules"
 script:
   - npm run build
 deploy:
