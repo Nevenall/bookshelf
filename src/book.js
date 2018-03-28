@@ -67,4 +67,4 @@ var pages = rawPages.keys().map((key) => {
 });
 
 
-export default new Book('Sufficient Reason', pages)
+export default new Book('Docs', pages)
