@@ -23,19 +23,10 @@ Style your application however you want.
 Thank you [Mike Zrimseks!](https://medium.com/@mikezrimsek/fork-your-own-github-repository-19ad4582b50a)
 
 ```
-//clone your new repository
 git clone <new repository>.git
-
-//navigate to the repository root
 cd <new repository>
-
-//add a reference to your original repository
 git remote add upstream <original repository>.git
-
-//pull all code from the original repository
 git pull upstream master
-
-//push all code to the new repository
 git push origin master
 ```
 
