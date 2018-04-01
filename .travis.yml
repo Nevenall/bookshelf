@@ -2,8 +2,14 @@ language: node_js
 node_js:
   - node
 install:
-  - npm i -g npm@5.7.1
+  - npm i -g npm
   - npm ci
+branches:
+  only:
+  - master
+cache:
+  directories:
+    - "node_modules"
 script:
   - npm run build
 deploy:
