@@ -1,3 +1,0 @@
-## future improvements
-
-Page order
