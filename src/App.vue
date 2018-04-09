@@ -85,13 +85,15 @@ export default {
 </style>
 
 <style>
-/* You can adjust these styles to work with your typefaces */ 
+/* You can adjust these styles to work with your typefaces */
 
 #typography div {
   max-width: 35em;
   margin: auto;
   font-size: 1rem;
   line-height: 1.2;
+  letter-spacing: 0.1;
+  word-spacing: 0;
 }
 
 #typography p {
@@ -100,9 +102,17 @@ export default {
   hyphenate-limit-lines: 2;
 }
 
-/* For styles specific to your book 
+/* For styles specific to your book  */
 #page div {
-
+  font-family: "Roboto";
 }
- */
+
+#page h1,
+#page h2,
+#page h3,
+#page h4,
+#page h5,
+#page h6 {
+  text-align: left;
+}
 </style>
