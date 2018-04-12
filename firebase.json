@@ -14,7 +14,7 @@
     ],
     "headers": [
       {
-        "source": "**/index.html|**/service-worker.js",
+        "source": "index.html|service-worker.js",
         "headers": [
           {
             "key": "Cache-Control",
