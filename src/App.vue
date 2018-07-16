@@ -1,5 +1,5 @@
 <template>
-    <v-app>
+    <v-app dark>
         <v-navigation-drawer :clipped="clipped" v-model="drawer" disable-route-watcher disable-resize-watcher app>
 
             <v-list>
