@@ -3,7 +3,6 @@
 
 var rawPages = require.context('./pages', true)
 
-
 class Book {
    // pages is an array of Page objects
    constructor(title, pages) {
@@ -21,7 +20,7 @@ class Book {
 
          var parts = page.path.split("/")
          if (parts.length < 2) {
-            //noop
+            // no op
          } else if (parts.length == 2) {
             this.pages.push(page)
          } else {
