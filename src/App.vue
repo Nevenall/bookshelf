@@ -12,14 +12,12 @@
                     </v-list-tile-content>
                 </v-list-tile>
 
-                <v-list-group prepend-icon="folder" value="true" v-for="section in book.sections" :key="section.name">
+                <v-list-group value="true" v-for="section in book.sections" :key="section.name">
                     <v-list-tile slot="activator">
                         <v-list-tile-title v-text="section.name"></v-list-tile-title>
                     </v-list-tile>
                     <v-list-tile value="true" v-for="nestedPage in section.pages" :key="nestedPage.path" @click="pushNav(nestedPage.path)">
-                        <v-list-tile-action>
-                            <v-icon>bookmark</v-icon>
-                        </v-list-tile-action>
+
                         <v-list-tile-content>
                             <v-list-tile-title v-text="nestedPage.name"></v-list-tile-title>
                         </v-list-tile-content>
@@ -27,9 +25,7 @@
                 </v-list-group>
 
                 <v-list-tile value="true" v-for="page in book.pages" :key="page.path" @click="pushNav(page.path)">
-                    <v-list-tile-action>
-                        <v-icon>bookmark</v-icon>
-                    </v-list-tile-action>
+
                     <v-list-tile-content>
                         <v-list-tile-title v-text="page.name"></v-list-tile-title>
                     </v-list-tile-content>
