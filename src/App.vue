@@ -1,118 +1,80 @@
 <template>
-    <div id="app" class="page-container">
-        <md-app md-waterfall md-mode="fixed">
-            <md-app-toolbar class="md-primary">
-                <md-button class="md-icon-button" @click="showNavigation = true">
-                    <md-icon>menu</md-icon>
-                </md-button>
-                <span class="md-title">BookShelf
-                    <md-icon>keyboard_arrow_right</md-icon>{{book.title}}</span>
-            </md-app-toolbar>
-            <md-app-drawer :md-active.sync="showNavigation">
-                <md-toolbar class="md-primary" md-elevation="0">
-                    <img src="./assets/logo.png" alt="BookShelf">
-                </md-toolbar>
-                <md-list>
-                    <md-list-item @click="pushNav('./')">
-                        <h2>{{book.title}}</h2>
-                    </md-list-item>
-                    <md-list-item md-expand v-for="section in book.sections" :key="section.name">
-                        <span class="md-list-item-text">{{section.name}}</span>
-                        <md-list slot="md-expand">
-                            <md-list-item class="md-inset" v-for="nestedPage in section.pages" :key="nestedPage.path" @click="pushNav(nestedPage.path)">
-                                <span class="md-list-item-text">{{nestedPage.name}}</span>
-                            </md-list-item>
-                        </md-list>
-                    </md-list-item>
-                    <md-list-item v-for="page in book.pages" :key="page.path" @click="pushNav(page.path)">
-                        <span class="md-list-item-text">{{page.name}}</span>
-                    </md-list-item>
-                </md-list>
-            </md-app-drawer>
-            <md-app-content>
-                <div id="page">
-                    <router-view></router-view>
-                </div>
-            </md-app-content>
-        </md-app>
-    </div>
+    <v-app>
+        <v-navigation-drawer :clipped="clipped" v-model="drawer" disable-route-watcher disable-resize-watcher app>
+
+            <v-list>
+                <v-list-tile avatar @click.stop="pushNav('./')">
+                    <v-list-tile-avatar>
+                        <img src=./assets/logo.png alt=BookShelf />
+                    </v-list-tile-avatar>
+                    <v-list-tile-content>
+                        <v-list-tile-title>{{book.title}}</v-list-tile-title>
+                    </v-list-tile-content>
+                </v-list-tile>
+
+                <v-list-group prepend-icon="folder" value="true" v-for="section in book.sections" :key="section.name">
+                    <v-list-tile slot="activator">
+                        <v-list-tile-title v-text="section.name"></v-list-tile-title>
+                    </v-list-tile>
+                    <v-list-tile value="true" v-for="nestedPage in section.pages" :key="nestedPage.path" @click="pushNav(nestedPage.path)">
+                        <v-list-tile-action>
+                            <v-icon>bookmark</v-icon>
+                        </v-list-tile-action>
+                        <v-list-tile-content>
+                            <v-list-tile-title v-text="nestedPage.name"></v-list-tile-title>
+                        </v-list-tile-content>
+                    </v-list-tile>
+                </v-list-group>
+
+                <v-list-tile value="true" v-for="page in book.pages" :key="page.path" @click="pushNav(page.path)">
+                    <v-list-tile-action>
+                        <v-icon>bookmark</v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-content>
+                        <v-list-tile-title v-text="page.name"></v-list-tile-title>
+                    </v-list-tile-content>
+                </v-list-tile>
+            </v-list>
+        </v-navigation-drawer>
+        <v-toolbar app :clipped-left="clipped">
+            <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+            <v-toolbar-title>
+                {{title}}
+                <v-icon>chevron_right</v-icon>{{book.title}}</v-toolbar-title>
+        </v-toolbar>
+        <v-content>
+            <v-container>
+                <router-view></router-view>
+            </v-container>
+        </v-content>
+
+        <v-footer :fixed="fixed" app>
+
+        </v-footer>
+    </v-app>
 </template>
 
 <script>
 import Book from "@/book";
 
 export default {
-  name: "app",
+  name: "App",
   data() {
     return {
-      book: {},
-      showNavigation: false
+      clipped: true,
+      drawer: false,
+      fixed: true,
+      book: Book,
+      title: "BookShelf"
     };
   },
-  created() {
-    this.book = Book;
-  },
-  components: {},
   methods: {
     pushNav(path) {
       // note - a little hack to correct pathing issues.
       var p = path.substring(1).replace(/ /g, "-");
-      this.showNavigation = false;
+      this.drawer = false;
       this.$router.push(p);
     }
   }
 };
 </script>
-
-<style lang="scss" scoped>
-@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic");
-@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
-
-@import "~vue-material/dist/theme/engine";
-
-@include md-register-theme("default", (
-   primary: md-get-palette-color(blue, A200), 
-   accent: md-get-palette-color(red, A200) 
-));
-
-@import "~vue-material/dist/theme/all";
-
-.md-app {
-  height: 100vh;
-}
-</style>
-
-<style>
-/* You can adjust these styles to layout your pages. */
-
-#page div {
-  font-family: "Roboto";
-  max-width: 35em;
-  margin: auto;
-  font-size: 1rem;
-  line-height: 1;
-  letter-spacing: 0;
-  word-spacing: 0;
-}
-
-#page p {
-  hyphens: auto;
-}
-
-#page h1,
-#page h2,
-#page h3,
-#page h4,
-#page h5,
-#page h6 {
-  text-align: left;
-}
-
-/* 
-
-#page table {
-
-}
-
-*/
-</style>

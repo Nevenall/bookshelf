@@ -1,53 +1,52 @@
 // data model for a book and it's contents
 'use strict'
 
-import path from 'path'
-var rawPages = require.context('@/pages', true)
+var rawPages = require.context('./pages', true)
 
 
 class Book {
    // pages is an array of Page objects
    constructor(title, pages) {
-      this.title = title;
-      this.allPages = pages;
-      this.sections = [];
-      this.pages = [];
-      this.frontPage = new Page("FrontPage", "./README.html", `<h2>${title}</h2>`);
+      this.title = title
+      this.allPages = pages
+      this.sections = []
+      this.pages = []
+      this.frontPage = new Page("FrontPage", "./README.html", `<h2>${title}</h2>`)
 
       pages.forEach(page => {
 
          if (page.path.toLowerCase() === "./readme.html") {
-            this.frontPage = page;
+            this.frontPage = page
          }
 
-         var parts = page.path.split("/");
+         var parts = page.path.split("/")
          if (parts.length < 2) {
             //noop
          } else if (parts.length == 2) {
-            this.pages.push(page);
+            this.pages.push(page)
          } else {
-            var sectionParts = parts.splice(1, parts.length - 2);
-            var currentSections = this.sections;
-            var current = null;
+            var sectionParts = parts.splice(1, parts.length - 2)
+            var currentSections = this.sections
+            var current = null
             sectionParts.forEach(newSection => {
-               current = currentSections.find(s => s.name === newSection);
+               current = currentSections.find(s => s.name === newSection)
                if (current == null) {
-                  current = new Section(newSection);
-                  currentSections.push(current);
+                  current = new Section(newSection)
+                  currentSections.push(current)
                }
-               currentSections = current.sections;
-            });
-            current.pages.push(page);
+               currentSections = current.sections
+            })
+            current.pages.push(page)
          }
-      });
+      })
    }
 }
 
 class Section {
    constructor(name) {
-      this.name = name;
-      this.pages = [];
-      this.sections = [];
+      this.name = name
+      this.pages = []
+      this.sections = []
    }
 }
 
@@ -55,16 +54,53 @@ class Section {
 class Page {
    //name, full path of the page in the form ./folder/pagename.html, contents of the page
    constructor(name, path, content) {
-      this.name = name;
-      this.path = path;
-      this.content = content;
+      this.name = name
+      this.path = path
+      this.content = content
    }
 }
 
+var pageOrder = {
+   "title": "BookShelf",
+   "pages": [{
+         "name": "Introduction",
+         "path": "./README.html"
+      },
+      {
+         "name": "Character Sheet",
+         "path": "./Character Sheet.html"
+      },
+      {
+         "name": "Making a Mage",
+         "path": "./System/Making a Mage.html"
+      },
+      {
+         "name": "Mundane Actions",
+         "path": "./System/Mundane Actions.html"
+      },
+      {
+         "name": "Working Magick",
+         "path": "./System/Working Magick.html"
+      },
+      {
+         "name": "Welcome to Reality",
+         "path": "./Setting/Welcome to Reality.html"
+      },
+      {
+         "name": "Avatars",
+         "path": "./Setting/Avatars.html"
+      },
+      {
+         "name": "Focus",
+         "path": "./Setting/Focus.html"
+      }
+   ]
+}
 
-var pages = rawPages.keys().map((key) => {
-   return new Page(path.basename(key, '.html'), key, rawPages(key))
-});
+var pages = pageOrder.pages.map((p) => {
+   return new Page(p.name, p.path, rawPages(p.path))
+})
 
+var thisBook = new Book(pageOrder.title, pages)
 
-export default new Book('Docs', pages)
+export default thisBook
