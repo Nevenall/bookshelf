@@ -8,7 +8,7 @@ module.exports = function(source) {
 
    return `export default "
          <template>
-         <div class="page">
+         <div>
             ${source}
          </div>
       </template>"`

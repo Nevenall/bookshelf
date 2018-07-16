@@ -1,46 +1,48 @@
 <template>
-    <v-app dark>
-        <v-navigation-drawer :clipped="clipped" v-model="drawer" disable-route-watcher disable-resize-watcher app>
-            <v-list>
-                <v-list-tile avatar @click.stop="pushNav('./')">
-                    <v-list-tile-avatar>
-                        <img src=./assets/logo.png alt=BookShelf />
-                    </v-list-tile-avatar>
-                    <v-list-tile-content>
-                        <v-list-tile-title>{{book.title}}</v-list-tile-title>
-                    </v-list-tile-content>
-                </v-list-tile>
-                <v-list-group value="true" v-for="section in book.sections" :key="section.name">
-                    <v-list-tile slot="activator">
-                        <v-list-tile-title v-text="section.name"></v-list-tile-title>
-                    </v-list-tile>
-                    <v-list-tile value="true" v-for="nestedPage in section.pages" :key="nestedPage.path" @click="pushNav(nestedPage.path)">
-                        <v-list-tile-content>
-                            <v-list-tile-title v-text="nestedPage.name"></v-list-tile-title>
-                        </v-list-tile-content>
-                    </v-list-tile>
-                </v-list-group>
-                <v-list-tile value="true" v-for="page in book.pages" :key="page.path" @click="pushNav(page.path)">
-                    <v-list-tile-content>
-                        <v-list-tile-title v-text="page.name"></v-list-tile-title>
-                    </v-list-tile-content>
-                </v-list-tile>
-            </v-list>
-        </v-navigation-drawer>
-        <v-toolbar app :clipped-left="clipped">
-            <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-            <v-toolbar-title>
-                {{title}}
-                <v-icon>chevron_right</v-icon>{{book.title}}</v-toolbar-title>
-        </v-toolbar>
-        <v-content>
-            <v-container>
-                <v-slide-x-transition>
-                    <router-view></router-view>
-                </v-slide-x-transition>
-            </v-container>
-        </v-content>
-    </v-app>
+   <v-app dark>
+      <v-navigation-drawer :clipped="clipped" v-model="drawer" disable-route-watcher disable-resize-watcher app>
+         <v-list>
+            <v-list-tile avatar @click.stop="pushNav('./')">
+               <v-list-tile-avatar>
+                  <img src=./assets/logo.png alt=BookShelf />
+               </v-list-tile-avatar>
+               <v-list-tile-content>
+                  <v-list-tile-title>{{book.title}}</v-list-tile-title>
+               </v-list-tile-content>
+            </v-list-tile>
+            <v-list-group value="true" v-for="section in book.sections" :key="section.name">
+               <v-list-tile slot="activator">
+                  <v-list-tile-title v-text="section.name"></v-list-tile-title>
+               </v-list-tile>
+               <v-list-tile value="true" v-for="nestedPage in section.pages" :key="nestedPage.path" @click="pushNav(nestedPage.path)">
+                  <v-list-tile-content>
+                     <v-list-tile-title v-text="nestedPage.name"></v-list-tile-title>
+                  </v-list-tile-content>
+               </v-list-tile>
+            </v-list-group>
+            <v-list-tile value="true" v-for="page in book.pages" :key="page.path" @click="pushNav(page.path)">
+               <v-list-tile-content>
+                  <v-list-tile-title v-text="page.name"></v-list-tile-title>
+               </v-list-tile-content>
+            </v-list-tile>
+         </v-list>
+      </v-navigation-drawer>
+      <v-toolbar app :clipped-left="clipped">
+         <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+         <v-toolbar-title>
+            {{title}}
+            <v-icon>chevron_right</v-icon>{{book.title}}</v-toolbar-title>
+      </v-toolbar>
+      <v-content>
+         <v-container>
+            <div id="page">
+               <v-slide-x-transition>
+                  <router-view></router-view>
+               </v-slide-x-transition>
+            </div>
+         </v-container>
+      </v-content>
+   </v-app>
 </template>
 
 <script>
@@ -67,3 +69,336 @@ export default {
   }
 };
 </script>
+<style lang="scss">
+#page div {
+  max-width: 35em;
+  margin: auto;
+  font-size: 1rem;
+  line-height: 1.25;
+  letter-spacing: 0;
+  word-spacing: 0;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+#page p {
+  hyphens: auto;
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+#page h1,
+#page h2,
+#page h3,
+#page h4,
+#page h5,
+#page h6 {
+  text-align: left;
+  line-height: 1;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+#page h1 {
+  font-size: 3.815rem;
+}
+#page h2 {
+  font-size: 3.052rem;
+}
+#page h3 {
+  font-size: 2.441rem;
+}
+#page h4 {
+  font-size: 1.953rem;
+}
+#page h5 {
+  font-size: 1.563rem;
+}
+#page h6 {
+  font-size: 1.25rem;
+}
+#page small {
+  font-size: 0.8rem;
+}
+
+#page aside {
+  margin-left: 1em;
+  margin-right: 1em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  font-weight: 300;
+  font-size: 0.8rem;
+  line-height: 1.5625;
+}
+
+#page article {
+  margin-left: 1em;
+  margin-right: 1em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  font-weight: 300;
+  font-size: 0.8rem;
+  line-height: 1.5625;
+}
+
+#page aside p {
+  font-size: 0.8rem;
+}
+#page article p {
+  font-size: 0.8rem;
+}
+#page aside h1 {
+  font-size: 3.052rem;
+}
+#page article h1 {
+  font-size: 3.052rem;
+}
+#page aside h2 {
+  font-size: 2.441rem;
+}
+#page article h2 {
+  font-size: 2.441rem;
+}
+#page aside h3 {
+  font-size: 1.953rem;
+}
+#page article h3 {
+  font-size: 1.953rem;
+}
+#page aside h4 {
+  font-size: 1.563rem;
+}
+#page article h4 {
+  font-size: 1.563rem;
+}
+#page aside h5 {
+  font-size: 1.25rem;
+}
+#page article h5 {
+  font-size: 1.25rem;
+}
+#page aside h6 {
+  font-size: 1rem;
+}
+#page article h6 {
+  font-size: 1rem;
+}
+
+@media screen and (min-width: 49em) {
+  /* breakpoint for text intrusion sidebars */
+  #page aside.left {
+    width: 11.5em;
+    float: left;
+    margin-left: -7em;
+  }
+  #page aside.right {
+    width: 11.5em;
+    float: right;
+    margin-right: -7em;
+  }
+}
+@media screen and (min-width: 60em) {
+  #page h1 {
+    font-size: 4.292rem;
+  }
+  #page h2 {
+    font-size: 3.433rem;
+  }
+  #page h3 {
+    font-size: 2.747rem;
+  }
+  #page h4 {
+    font-size: 2.197rem;
+  }
+  #page h5 {
+    font-size: 1.758rem;
+  }
+  #page h6 {
+    font-size: 1.406rem;
+  }
+  #page p,
+  #page li,
+  #page a,
+  #page th,
+  #page td {
+    font-size: 1.125rem;
+  }
+  #page small {
+    font-size: 0.9rem;
+  }
+  #page aside.left {
+    width: 11.5em;
+    float: left;
+    margin-left: -12.5em;
+  }
+  #page aside.right {
+    width: 11.5em;
+    float: right;
+    margin-right: -12.5em;
+  }
+  #page article.left {
+    width: 23em;
+    float: left;
+    margin-left: -12.5em;
+  }
+  #page article.right {
+    width: 23em;
+    float: right;
+    margin-right: -12.5em;
+  }
+
+  #page aside,
+  #page article,
+  #page aside p,
+  #page aside li,
+  #page aside a,
+  #page aside th,
+  #page aside td,
+  #page article p,
+  #page article li,
+  #page article a,
+  #page article th,
+  #page article td {
+    font-size: 0.9rem;
+  }
+  #page aside h1,
+  #page article h1 {
+    font-size: 3.433rem;
+  }
+  #page aside h2,
+  #page article h2 {
+    font-size: 2.747rem;
+  }
+  #page aside h3,
+  #page article h3 {
+    font-size: 2.197rem;
+  }
+  #page aside h4,
+  #page article h4 {
+    font-size: 1.758rem;
+  }
+  #page aside h5,
+  #page article h5 {
+    font-size: 1.406rem;
+  }
+  #page aside h6,
+  #page article h6 {
+    font-size: 1.125rem;
+  }
+}
+@media screen and (min-width: 90em) {
+  #page div {
+    max-width: 36em;
+  }
+  #page aside.left {
+    width: 15em;
+    float: left;
+    margin-left: -16em;
+  }
+  #page aside.right {
+    width: 15em;
+    float: right;
+    margin-right: -16em;
+  }
+  #page article.left {
+    width: 30em;
+    float: left;
+    margin-left: -27em;
+  }
+  #page article.right {
+    width: 30em;
+    float: right;
+    margin-right: -27em;
+  }
+}
+@media screen and (min-width: 120em) {
+  #page h1 {
+    font-size: 5.009rem;
+  }
+  #page h2 {
+    font-size: 4.007rem;
+  }
+  #page h3 {
+    font-size: 3.206rem;
+  }
+  #page h4 {
+    font-size: 2.564rem;
+  }
+  #page h5 {
+    font-size: 2.052rem;
+  }
+  #page h6 {
+    font-size: 1.641rem;
+  }
+  #page p,
+  #page li,
+  #page a,
+  #page th,
+  #page td {
+    font-size: 1.3125rem;
+  }
+  #page small {
+    font-size: 1.05rem;
+  }
+  #page div {
+    max-width: 38em;
+  }
+  #page aside.left {
+    float: left;
+    width: 20em;
+    margin-left: -21em;
+  }
+  #page aside.right {
+    width: 20em;
+    float: right;
+    margin-right: -21em;
+  }
+  #page article.left {
+    width: 30em;
+    float: left;
+    margin-left: -31em;
+  }
+  #page article.right {
+    width: 30em;
+    float: right;
+    margin-right: -31em;
+  }
+  #page aside,
+  #page article,
+  #page aside p,
+  #page aside li,
+  #page aside a,
+  #page aside th,
+  #page aside td,
+  #page article p,
+  #page article li,
+  #page article a,
+  #page article th,
+  #page article td {
+    font-size: 1.05rem;
+  }
+  #page aside h1,
+  #page article h1 {
+    font-size: 4.007rem;
+  }
+  #page aside h2,
+  #page article h2 {
+    font-size: 3.206rem;
+  }
+  #page aside h3,
+  #page article h3 {
+    font-size: 2.564rem;
+  }
+  #page aside h4,
+  #page article h4 {
+    font-size: 2.052rem;
+  }
+  #page aside h5,
+  #page article h5 {
+    font-size: 1.641rem;
+  }
+  #page aside h6,
+  #page article h6 {
+    font-size: 1.313rem;
+  }
+}
+</style>
