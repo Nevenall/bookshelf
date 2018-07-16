@@ -5,7 +5,7 @@ import Book from '@/book'
 Vue.use(Router)
 
 var router = new Router({
-   mode: "history",
+   mode: "hash",
    routes: [{
       path: '/',
       redirect: {
@@ -19,5 +19,12 @@ var router = new Router({
       }
    }))
 })
+
+
+router.beforeEach((to, from, next) => {
+
+   next()
+})
+
 
 export default router

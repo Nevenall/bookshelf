@@ -1,7 +1,6 @@
 <template>
     <v-app dark>
         <v-navigation-drawer :clipped="clipped" v-model="drawer" disable-route-watcher disable-resize-watcher app>
-
             <v-list>
                 <v-list-tile avatar @click.stop="pushNav('./')">
                     <v-list-tile-avatar>
@@ -11,21 +10,17 @@
                         <v-list-tile-title>{{book.title}}</v-list-tile-title>
                     </v-list-tile-content>
                 </v-list-tile>
-
                 <v-list-group value="true" v-for="section in book.sections" :key="section.name">
                     <v-list-tile slot="activator">
                         <v-list-tile-title v-text="section.name"></v-list-tile-title>
                     </v-list-tile>
                     <v-list-tile value="true" v-for="nestedPage in section.pages" :key="nestedPage.path" @click="pushNav(nestedPage.path)">
-
                         <v-list-tile-content>
                             <v-list-tile-title v-text="nestedPage.name"></v-list-tile-title>
                         </v-list-tile-content>
                     </v-list-tile>
                 </v-list-group>
-
                 <v-list-tile value="true" v-for="page in book.pages" :key="page.path" @click="pushNav(page.path)">
-
                     <v-list-tile-content>
                         <v-list-tile-title v-text="page.name"></v-list-tile-title>
                     </v-list-tile-content>
@@ -40,13 +35,11 @@
         </v-toolbar>
         <v-content>
             <v-container>
-                <router-view></router-view>
+                <v-slide-x-transition>
+                    <router-view></router-view>
+                </v-slide-x-transition>
             </v-container>
         </v-content>
-
-        <v-footer :fixed="fixed" app>
-
-        </v-footer>
     </v-app>
 </template>
 
