@@ -70,6 +70,8 @@ export default {
 };
 </script>
 <style lang="scss">
+@import 'system-fonts.css';
+
 #page div {
   max-width: 35em;
   margin: auto;
