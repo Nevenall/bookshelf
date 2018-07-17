@@ -70,8 +70,8 @@ export default {
 };
 </script>
 <style lang="scss">
-@import 'system-fonts.css';
-
+@import 'fonts/system-fonts.css';
+@import 'book-fonts.css';
 #page div {
   max-width: 35em;
   margin: auto;
