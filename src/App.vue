@@ -72,7 +72,9 @@ export default {
 <style lang="scss">
 @import "fonts/system-fonts.css";
 @import "fonts/book-fonts.css";
-@import "typography.scss";
-@import "book.scss";
 
+#page {
+  @import "typography.scss";
+  @import "book.scss";
+}
 </style>
