@@ -1,5 +1,14 @@
-// we can blissfully nest our rules inside a single  div {} and 
-div {
+// basic typography 
+
+// list of the basic text elements to apply paragraph level font size to
+$textElements: p,
+li,
+a,
+th,
+td,
+dd;
+
+& {
    max-width: 35em;
    margin: auto;
    font-size: 1rem;
@@ -28,6 +37,7 @@ h6 {
    margin-bottom: 0.5em;
 }
 
+// Font Sizes
 h1 {
    font-size: 3.815rem;
 }
@@ -52,10 +62,16 @@ h6 {
    font-size: 1.25rem;
 }
 
+#{$textElements} {
+   font-size: 1rem;
+}
+
 small {
    font-size: 0.8rem;
 }
 
+// callouts
+article,
 aside {
    margin-left: 1em;
    margin-right: 1em;
@@ -64,72 +80,27 @@ aside {
    font-weight: 300;
    font-size: 0.8rem;
    line-height: 1.5625;
-}
-
-article {
-   margin-left: 1em;
-   margin-right: 1em;
-   margin-top: 0.5em;
-   margin-bottom: 0.5em;
-   font-weight: 300;
-   font-size: 0.8rem;
-   line-height: 1.5625;
-}
-
-aside p {
-   font-size: 0.8rem;
-}
-
-article p {
-   font-size: 0.8rem;
-}
-
-aside h1 {
-   font-size: 3.052rem;
-}
-
-article h1 {
-   font-size: 3.052rem;
-}
-
-aside h2 {
-   font-size: 2.441rem;
-}
-
-article h2 {
-   font-size: 2.441rem;
-}
-
-aside h3 {
-   font-size: 1.953rem;
-}
-
-article h3 {
-   font-size: 1.953rem;
-}
-
-aside h4 {
-   font-size: 1.563rem;
-}
-
-article h4 {
-   font-size: 1.563rem;
-}
-
-aside h5 {
-   font-size: 1.25rem;
-}
-
-article h5 {
-   font-size: 1.25rem;
-}
-
-aside h6 {
-   font-size: 1rem;
-}
-
-article h6 {
-   font-size: 1rem;
+   #{$textElements} {
+      font-size: 0.8rem;
+   }
+   h1 {
+      font-size: 3.052rem;
+   }
+   h2 {
+      font-size: 2.441rem;
+   }
+   h3 {
+      font-size: 1.953rem;
+   }
+   h4 {
+      font-size: 1.563rem;
+   }
+   h5 {
+      font-size: 1.25rem;
+   }
+   h6 {
+      font-size: 1rem;
+   }
 }
 
 @media screen and (min-width: 49em) {
@@ -165,11 +136,7 @@ article h6 {
    h6 {
       font-size: 1.406rem;
    }
-   p,
-   li,
-   a,
-   th,
-   td {
+   #{$textElements} {
       font-size: 1.125rem;
    }
    small {
@@ -195,6 +162,7 @@ article h6 {
       float: right;
       margin-right: -12.5em;
    }
+   
    aside,
    article,
    aside p,
