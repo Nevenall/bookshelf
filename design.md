@@ -32,7 +32,17 @@ but is it good practice to separate the layout from raw typography?
 one could make an argument that it's all typography
 could we take a generically written css from the pages directory and add the #page scope to it to get something localized? I wonder if sass can do that? 
 
+Sass is great! 
 
+Also, we can do various things to make the styles more readable with scss
+We could parcel out the media breakpoints into their various element types. 
+Or we could just nest them in reasonable ways. 
+
+the font size and line heights are very dependent on the fonts
+but the widths and placement are not so much. 
+most of the rythmn is pretty generic. 
+either each book overides the various font sizes and line heights in book.scss
+or each book can just edit the typography values.
 
 
 ## Todo
@@ -40,5 +50,5 @@ could we take a generically written css from the pages directory and add the #pa
 - [x] Add basic styling to App.vue
 - [x] Add basic typography to App.vue
 - [x] add roboto and material design icon fonts as woff(2) files so they can be embedded in the package.
-- [ ] clean up the scss with &. scope operator
+- [ ] clean up the scss 
 
