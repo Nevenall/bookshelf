@@ -1,5 +1,4 @@
 // basic typography 
-
 // list of the basic text elements to apply paragraph level font size to
 $textElements: p,
 li,
@@ -7,7 +6,6 @@ a,
 th,
 td,
 dd;
-
 & {
    max-width: 35em;
    margin: auto;
@@ -73,6 +71,7 @@ small {
 // callouts
 article,
 aside {
+   font-size: 0.8rem;
    margin-left: 1em;
    margin-right: 1em;
    margin-top: 0.5em;
@@ -162,49 +161,35 @@ aside {
       float: right;
       margin-right: -12.5em;
    }
-   
    aside,
-   article,
-   aside p,
-   aside li,
-   aside a,
-   aside th,
-   aside td,
-   article p,
-   article li,
-   article a,
-   article th,
-   article td {
-      font-size: 0.9rem;
-   }
-   aside h1,
-   article h1 {
-      font-size: 3.433rem;
-   }
-   aside h2,
-   article h2 {
-      font-size: 2.747rem;
-   }
-   aside h3,
-   article h3 {
-      font-size: 2.197rem;
-   }
-   aside h4,
-   article h4 {
-      font-size: 1.758rem;
-   }
-   aside h5,
-   article h5 {
-      font-size: 1.406rem;
-   }
-   aside h6,
-   article h6 {
-      font-size: 1.125rem;
+   article {
+      font-size: .9rem;
+      #{$textElements} {
+         font-size: 0.9rem;
+      }
+      h1 {
+         font-size: 3.433rem;
+      }
+      h2 {
+         font-size: 2.747rem;
+      }
+      h3 {
+         font-size: 2.197rem;
+      }
+      h4 {
+         font-size: 1.758rem;
+      }
+      h5 {
+         font-size: 1.406rem;
+      }
+      h6 {
+         font-size: 1.125rem;
+      }
    }
 }
 
 @media screen and (min-width: 90em) {
-   div {
+   & {
       max-width: 36em;
    }
    aside.left {
@@ -248,17 +233,13 @@ aside {
    h6 {
       font-size: 1.641rem;
    }
-   p,
-   li,
-   a,
-   th,
-   td {
+   #{$textElements} {
       font-size: 1.3125rem;
    }
    small {
       font-size: 1.05rem;
    }
-   div {
+   & {
       max-width: 38em;
    }
    aside.left {
@@ -282,41 +263,28 @@ aside {
       margin-right: -31em;
    }
    aside,
-   article,
-   aside p,
-   aside li,
-   aside a,
-   aside th,
-   aside td,
-   article p,
-   article li,
-   article a,
-   article th,
-   article td {
+   article {
       font-size: 1.05rem;
-   }
-   aside h1,
-   article h1 {
-      font-size: 4.007rem;
-   }
-   aside h2,
-   article h2 {
-      font-size: 3.206rem;
-   }
-   aside h3,
-   article h3 {
-      font-size: 2.564rem;
-   }
-   aside h4,
-   article h4 {
-      font-size: 2.052rem;
-   }
-   aside h5,
-   article h5 {
-      font-size: 1.641rem;
-   }
-   aside h6,
-   article h6 {
-      font-size: 1.313rem;
+      #{$textElements} {
+         font-size: 1.05rem;
+      }
+      h1 {
+         font-size: 4.007rem;
+      }
+      h2 {
+         font-size: 3.206rem;
+      }
+      h3 {
+         font-size: 2.564rem;
+      }
+      h4 {
+         font-size: 2.052rem;
+      }
+      h5 {
+         font-size: 1.641rem;
+      }
+      h6 {
+         font-size: 1.313rem;
+      }
    }
 }
