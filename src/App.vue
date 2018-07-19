@@ -69,11 +69,6 @@ export default {
   }
 };
 </script>
-<style lang="stylus">
-$color-pack = false;
-
-@import '~vuetify/src/stylus/main';
-</style>
 
 <style lang="scss">
 @import "fonts/system-fonts.css";

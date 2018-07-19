@@ -50,5 +50,5 @@ or each book can just edit the typography values.
 - [x] Add basic styling to App.vue
 - [x] Add basic typography to App.vue
 - [x] add roboto and material design icon fonts as woff(2) files so they can be embedded in the package.
-- [ ] clean up the scss 
-
+- [x] clean up the scss 
+- [ ] need to be able to assign theme colors in css before we can merge
