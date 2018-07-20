@@ -52,3 +52,4 @@ or each book can just edit the typography values.
 - [x] add roboto and material design icon fonts as woff(2) files so they can be embedded in the package.
 - [x] clean up the scss 
 - [ ] need to be able to assign theme colors in css before we can merge
+- [ ] make a reduced version of material-icons because we only need like two icons
