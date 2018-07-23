@@ -26,6 +26,9 @@
                </v-list-tile-content>
             </v-list-tile>
          </v-list>
+         <v-footer>
+            <p>Can a drawer have a footer?</p>
+         </v-footer>
       </v-navigation-drawer>
       <v-toolbar app :clipped-left="clipped">
          <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
@@ -36,9 +39,7 @@
       <v-content>
          <v-container>
             <div id="page">
-               <v-slide-x-transition>
-                  <router-view></router-view>
-               </v-slide-x-transition>
+               <router-view></router-view>
             </div>
          </v-container>
       </v-content>
