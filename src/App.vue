@@ -71,7 +71,7 @@ export default {
 <style lang="scss">
 @import "fonts/system-fonts.css";
 @import "fonts/book-fonts.css";
-
+html { overflow-y: auto; }
 #page {
   @import "typography.scss";
   @import "book.scss";
