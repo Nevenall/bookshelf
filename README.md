@@ -1,3 +1,7 @@
+<p align="center">
+  <img width="400" height="141,88 " src="https://user-images.githubusercontent.com/40801473/43369939-7278fb6e-936e-11e8-8c7e-4fef86fefdfa.png">
+</p>
+
 [![Build Status](https://travis-ci.org/Nevenall/BookShelf.svg?branch=master)](https://travis-ci.org/Nevenall/BookShelf)
 
 # BookShelf
