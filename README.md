@@ -4,17 +4,19 @@
 
 [![Build Status](https://travis-ci.org/Nevenall/BookShelf.svg?branch=master)](https://travis-ci.org/Nevenall/BookShelf)
 
-# BookShelf
 
-BookShelf is a [progressive web app](https://developers.google.com/web/progressive-web-apps/) for serving up notes, documentation, or books as static html fragments. 
+BookShelf is a Material Design [progressive web app](https://developers.google.com/web/progressive-web-apps/) template for hosting and navigating static html fragments. 
 
-## Why?
+BookShelf has only a small subset of the features other documentation and static site generators do. It's essentially a template intended to be forked and customized. 
 
-I do my writing in markdown, using markdown-it with some custom extensions to convert it to html, and none of the existing static html services supported my custom extensions, nor offered a good experience regardless of device, so I made my own.
+Some reasons to check it out:
 
-As a progressive web app BookShelf gets sent to your browser as a self-contained package. Once you've loaded it, you no longer need network connectivity to read any of the pages. Also, some smartphones allow installing a progressive web app as if it was a phone app.
+- Fast, light, and flexible
+- Excellent mobile device support
+- All the benefits of a Progressive Web App
+  - Notably, the entire site can be read offline
 
-## Running Instances
+## Running Instances (works in progress)
 
 To see a live instance check out one of these:
 
@@ -23,24 +25,12 @@ To see a live instance check out one of these:
 
 ## Usage 
 
-Just fork the repository and add your own html fragments to the `src/pages` directory. 
+1. Just fork the repository and add your own html fragments to the `src/pages` directory
+2. Delete or edit `firebase.json` and `.travis.yml` to fit your own CI/Hosting needs
+3. Edit the pageOrder object in `book.js`  
+4. Place your custom styles in `book.scss` 
 
-Delete or edit `firebase.json` and `.travis.yml` to fit your own CI/Hosting needs. 
 
-Style your application however you want. 
+## Thanks!
 
-## What You Get
-
-### Navigation
-
-Bookshelf will generate a nested navigation for your pages based on their directory structure.
-
-*Currently only one level of directory structure is supported.*
-
-### Page Position Memory
-
-Bookshelf will remember where you are on a page on a particular device.
-
-### Material Design
-
-The application uses [Vuetify](https://vuetifyjs.com/) components.
+A big thank you to [zuurw](https://github.com/zuurw/Graphic-Design-) for creating the BookShelf logo!
