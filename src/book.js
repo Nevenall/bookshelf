@@ -62,38 +62,9 @@ class Page {
 var pageOrder = {
    "title": "BookShelf",
    "pages": [{
-         "name": "Introduction",
-         "path": "./README.html"
-      },
-      {
-         "name": "Character Sheet",
-         "path": "./Character Sheet.html"
-      },
-      {
-         "name": "Making a Mage",
-         "path": "./System/Making a Mage.html"
-      },
-      {
-         "name": "Mundane Actions",
-         "path": "./System/Mundane Actions.html"
-      },
-      {
-         "name": "Working Magick",
-         "path": "./System/Working Magick.html"
-      },
-      {
-         "name": "Welcome to Reality",
-         "path": "./Setting/Welcome to Reality.html"
-      },
-      {
-         "name": "Avatars",
-         "path": "./Setting/Avatars.html"
-      },
-      {
-         "name": "Focus",
-         "path": "./Setting/Focus.html"
-      }
-   ]
+      "name": "Introduction",
+      "path": "./README.html"
+   }]
 }
 
 var pages = pageOrder.pages.map((p) => {
