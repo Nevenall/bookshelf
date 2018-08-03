@@ -2,6 +2,7 @@ import Vue from 'vue'
 import {
    Vuetify,
    VApp,
+   VCard,
    VNavigationDrawer,
    VFooter,
    VList,
@@ -15,6 +16,7 @@ import 'vuetify/src/stylus/app.styl'
 Vue.use(Vuetify, {
    components: {
       VApp,
+      VCard,
       VNavigationDrawer,
       VFooter,
       VList,
@@ -24,7 +26,7 @@ Vue.use(Vuetify, {
       transitions
    },
    theme: {
-      primary:  "#82B1FF",
+      primary: "#82B1FF",
       secondary: "#BBDEFB",
       accent: "#B388FF",
       error: "#FF8A80",
