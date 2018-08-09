@@ -1,61 +1,47 @@
 <template>
-    <v-app dark>
-        <v-navigation-drawer :clipped="clipped" v-model="drawer" disable-route-watcher disable-resize-watcher app>
-            <v-card>
-                <v-card-media class="text-white" height="200px" :src="require('./assets/logo-horizontal.png')">
-                    <v-container fill-height fluid>
-                        <v-layout fill-height align-end>
-                            <v-flex xs12 align-end flexbox>
-                                <v-list-tile @click="pushNav('./')">
-                                    <!-- <v-list-tile-content>
-                                        <span class="headline">{{book.title}}</span>
-                                    </v-list-tile-content> -->
-                                </v-list-tile>
-                            </v-flex>
-                        </v-layout>
-                    </v-container>
-                </v-card-media>
-            </v-card>
-            <v-list>
-                <!-- <v-list-tile avatar @click.stop="pushNav('./')">
-                    <v-list-tile-avatar>
-                        <img src=./assets/logo.png alt=BookShelf />
-                    </v-list-tile-avatar>
-                    <v-list-tile-content>
-                        <v-list-tile-title>{{book.title}}</v-list-tile-title>
-                    </v-list-tile-content>
-                </v-list-tile> -->
-                <v-list-group value="true" v-for="section in book.sections" :key="section.name">
-                    <v-list-tile slot="activator">
-                        <v-list-tile-title v-text="section.name"></v-list-tile-title>
-                    </v-list-tile>
-                    <v-list-tile value="true" v-for="nestedPage in section.pages" :key="nestedPage.path" @click="pushNav(nestedPage.path)">
-                        <v-list-tile-content>
-                            <v-list-tile-title v-text="nestedPage.name"></v-list-tile-title>
-                        </v-list-tile-content>
-                    </v-list-tile>
-                </v-list-group>
-                <v-list-tile value="true" v-for="page in book.pages" :key="page.path" @click="pushNav(page.path)">
-                    <v-list-tile-content>
-                        <v-list-tile-title v-text="page.name"></v-list-tile-title>
-                    </v-list-tile-content>
-                </v-list-tile>
-            </v-list>
-        </v-navigation-drawer>
-        <v-toolbar app :clipped-left="clipped">
-            <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-            <v-toolbar-title>
-                {{title}}
-                <v-icon>chevron_right</v-icon>{{book.title}}</v-toolbar-title>
-        </v-toolbar>
-        <v-content>
-            <v-container>
-                <div id="page">
-                    <router-view></router-view>
-                </div>
-            </v-container>
-        </v-content>
-    </v-app>
+   <md-app>
+      <md-app-toolbar class="md-primary">
+         <md-button class="md-icon-button" @click="drawer = true">
+            <md-icon>menu</md-icon>
+         </md-button>
+         <span class="md-title">BookShelf</span>
+      </md-app-toolbar>
+
+      <md-app-drawer :md-active.sync="drawer">
+         <!-- todo - a card with the logo text vertical -->
+         <md-toolbar class="md-transparent" md-elevation="0">
+            Navigation
+         </md-toolbar>
+
+         <md-list>
+            <md-list-item>
+               <md-icon>move_to_inbox</md-icon>
+               <span class="md-list-item-text">Inbox</span>
+            </md-list-item>
+
+            <md-list-item>
+               <md-icon>send</md-icon>
+               <span class="md-list-item-text">Sent Mail</span>
+            </md-list-item>
+
+            <md-list-item>
+               <md-icon>delete</md-icon>
+               <span class="md-list-item-text">Trash</span>
+            </md-list-item>
+
+            <md-list-item>
+               <md-icon>error</md-icon>
+               <span class="md-list-item-text">Spam</span>
+            </md-list-item>
+         </md-list>
+      </md-app-drawer>
+
+      <md-app-content>
+         <div id="page">
+            <router-view/>
+         </div>
+      </md-app-content>
+   </md-app>
 </template>
 
 <script>
@@ -65,9 +51,7 @@ export default {
   name: "App",
   data() {
     return {
-      clipped: true,
       drawer: false,
-      fixed: true,
       book: Book,
       title: "BookShelf"
     };

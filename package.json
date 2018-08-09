@@ -14,13 +14,13 @@
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
-    "@babel/polyfill": "^7.0.0-beta.56",
-    "@vue/cli-plugin-babel": "^3.0.0-rc.11",
-    "@vue/cli-plugin-pwa": "^3.0.0-rc.11",
-    "@vue/cli-service": "^3.0.0-rc.11",
+    "@babel/polyfill": "^7.0.0-rc.0",
+    "@vue/cli-plugin-babel": "^3.0.0-rc.12",
+    "@vue/cli-plugin-pwa": "^3.0.0-rc.12",
+    "@vue/cli-service": "^3.0.0-rc.12",
     "ajv": "^6.5.2",
     "babel-plugin-transform-imports": "^1.4.1",
-    "node-sass": "^4.9.2",
+    "node-sass": "^4.9.3",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.21.0",
     "vue-template-compiler": "^2.5.17"
