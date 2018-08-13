@@ -1,16 +1,16 @@
 <template>
-   <md-app>
-      <md-app-toolbar class="md-primary">
+   <md-app md-waterfall md-mode="fixed">
+      <md-app-toolbar class="md-primary" md-elevation="1">
          <md-button class="md-icon-button" @click="drawer = true">
             <md-icon>menu</md-icon>
          </md-button>
          <span class="md-title">BookShelf</span>
       </md-app-toolbar>
 
-      <md-app-drawer :md-active.sync="drawer">
+      <md-app-drawer md-fixed md-persistent="full" :md-active.sync="drawer">
          <!-- todo - a card with the logo text vertical -->
          <md-toolbar class="md-transparent" md-elevation="0">
-            Navigation
+            BookShelf
          </md-toolbar>
 
          <md-list>
@@ -68,10 +68,25 @@ export default {
 </script>
 
 <style lang="scss">
+@import "~vue-material/dist/theme/engine";
+
+@include md-register-theme(
+  "default",
+  (
+    primary: md-get-palette-color(blue, A200),
+    accent: md-get-palette-color(red, A200)
+  )
+);
+
+@import "~vue-material/dist/theme/all";
+
 @import "fonts/system-fonts.css";
 @import "fonts/book-fonts.css";
 html {
-  overflow-y: auto;
+  overflow-y: hidden;
+}
+.md-app {
+  max-height: 100vh;
 }
 #page {
   @import "typography.scss";
