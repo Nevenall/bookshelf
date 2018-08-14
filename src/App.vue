@@ -4,35 +4,33 @@
          <md-button class="md-icon-button" @click="drawer = true">
             <md-icon>menu</md-icon>
          </md-button>
-         <span class="md-title">BookShelf</span>
+         <span class="md-title">BookShelf
+            <md-icon>chevron_right</md-icon>
+         </span>
       </md-app-toolbar>
 
       <md-app-drawer md-fixed md-persistent="full" :md-active.sync="drawer">
-         <!-- todo - a card with the logo text vertical -->
-         <md-toolbar class="md-transparent" md-elevation="0">
-            BookShelf
-         </md-toolbar>
+         <md-card>
+            <md-card-media-cover md-text-scrim>
+               <md-card-media md-ratio="1:1">
+                  <img src="./assets/logo.png" alt="bookshelf logo">
+               </md-card-media>
+               <md-card-area md-inset>
+                  <md-card-header>
+                     <span class="md-title">BookShelf</span>
+                  </md-card-header>
+               </md-card-area>
+            </md-card-media-cover>
+         </md-card>
 
          <md-list>
-            <md-list-item>
-               <md-icon>move_to_inbox</md-icon>
-               <span class="md-list-item-text">Inbox</span>
-            </md-list-item>
+            <md-list slot="md-expand" v-for="section in book.sections" :key="section.name">
+               <span class="md-list-item-text">{{section.name}}</span>
+               <md-list-item class="md-inset" v-for="nestedPage in section.pages" :key="nestedPage.path" @click="pushNav(nestedPage.path)">{{nestedPage.name}}</md-list-item>
+            </md-list>
 
-            <md-list-item>
-               <md-icon>send</md-icon>
-               <span class="md-list-item-text">Sent Mail</span>
-            </md-list-item>
+            <md-list-item v-for="page in book.pages" :key="page.path" @click="pushNav(page.path)">{{page.name}}</md-list-item>
 
-            <md-list-item>
-               <md-icon>delete</md-icon>
-               <span class="md-list-item-text">Trash</span>
-            </md-list-item>
-
-            <md-list-item>
-               <md-icon>error</md-icon>
-               <span class="md-list-item-text">Spam</span>
-            </md-list-item>
          </md-list>
       </md-app-drawer>
 
