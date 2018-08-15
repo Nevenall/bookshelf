@@ -8,7 +8,6 @@
             <md-icon>chevron_right</md-icon>
          </span>
       </md-app-toolbar>
-
       <md-app-drawer md-fixed md-persistent="full" :md-active.sync="drawer">
          <md-card>
             <md-card-media-cover md-text-scrim>
@@ -22,18 +21,14 @@
                </md-card-area>
             </md-card-media-cover>
          </md-card>
-
          <md-list>
             <md-list slot="md-expand" v-for="section in book.sections" :key="section.name">
                <span class="md-list-item-text">{{section.name}}</span>
                <md-list-item class="md-inset" v-for="nestedPage in section.pages" :key="nestedPage.path" @click="pushNav(nestedPage.path)">{{nestedPage.name}}</md-list-item>
             </md-list>
-
             <md-list-item v-for="page in book.pages" :key="page.path" @click="pushNav(page.path)">{{page.name}}</md-list-item>
-
          </md-list>
       </md-app-drawer>
-
       <md-app-content>
          <div id="page">
             <router-view/>
@@ -72,6 +67,7 @@ export default {
   "default",
   (
     primary: md-get-palette-color(blue, A200),
+    background: #000000,
     accent: md-get-palette-color(red, A200)
   )
 );
