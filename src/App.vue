@@ -65,7 +65,7 @@ html {
   overflow-y: hidden;
 }
 .md-app {
-  max-height: 100vh;
+  height: 100vh;
 }
 .drawer-logo {
   padding: 10px;
