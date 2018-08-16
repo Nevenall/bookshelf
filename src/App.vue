@@ -9,18 +9,9 @@
          </span>
       </md-app-toolbar>
       <md-app-drawer md-fixed md-persistent="full" :md-active.sync="drawer">
-         <md-card>
-            <md-card-media-cover md-text-scrim>
-               <md-card-media md-ratio="1:1">
-                  <img src="./assets/logo.png" alt="bookshelf logo">
-               </md-card-media>
-               <md-card-area md-inset>
-                  <md-card-header>
-                     <span class="md-title">BookShelf</span>
-                  </md-card-header>
-               </md-card-area>
-            </md-card-media-cover>
-         </md-card>
+         <div class="drawer-logo">
+            <img src="./assets/logo-vertical.png" alt="bookshelf logo">
+         </div>
          <md-list>
             <md-list slot="md-expand" v-for="section in book.sections" :key="section.name">
                <span class="md-list-item-text">{{section.name}}</span>
@@ -65,15 +56,9 @@ export default {
 
 @include md-register-theme(
   "default",
-  (
-    primary: md-get-palette-color(blue, A200),
-    background: #000000,
-    accent: md-get-palette-color(red, A200)
-  )
+  (primary: #448aff, accent: #ff6600, background: #ffffff)
 );
-
 @import "~vue-material/dist/theme/all";
-
 @import "fonts/system-fonts.css";
 @import "fonts/book-fonts.css";
 html {
@@ -81,6 +66,9 @@ html {
 }
 .md-app {
   max-height: 100vh;
+}
+.drawer-logo {
+  padding: 10px;
 }
 #page {
   @import "typography.scss";

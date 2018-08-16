@@ -8,15 +8,13 @@
 //    --md-theme-default-background-variant
 //    --md-theme-default-accent-on-background
 //    --md-theme-default-text-primary-on-accent
-//    --md-theme-default-text-primary-on-accent
 //    --md-theme-default-text-primary-on-background-variant
-
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-   color: #ff6600;
+   color: var(--md-theme-default-accent);
    font-weight: 300;
 }
