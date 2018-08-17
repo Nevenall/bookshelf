@@ -12,11 +12,13 @@
          <div class="drawer-logo">
             <img src="./assets/logo-vertical.png" alt="bookshelf logo">
          </div>
-         <md-list>
-            <md-list slot="md-expand" v-for="section in book.sections" :key="section.name">
+          <md-list>
+            <md-list-item md-expand v-for="section in book.sections" :key="section.name">
                <span class="md-list-item-text">{{section.name}}</span>
-               <md-list-item class="md-inset" v-for="nestedPage in section.pages" :key="nestedPage.path" @click="pushNav(nestedPage.path)">{{nestedPage.name}}</md-list-item>
-            </md-list>
+               <md-list slot="md-expand">
+                  <md-list-item class="md-inset" v-for="nestedPage in section.pages" :key="nestedPage.path" @click="pushNav(nestedPage.path)">{{nestedPage.name}}</md-list-item>
+               </md-list>
+            </md-list-item>
             <md-list-item v-for="page in book.pages" :key="page.path" @click="pushNav(page.path)">{{page.name}}</md-list-item>
          </md-list>
       </md-app-drawer>
