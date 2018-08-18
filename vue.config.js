@@ -2,7 +2,14 @@ const path = require('path')
 
 module.exports = {
    pwa: {
-      name: 'BookShelf'
+      name: 'BookShelf',
+      themeColor: '#82B1FF',
+      iconPaths: {
+         favicon32: 'icons/favicon-32x32.png',
+         favicon16: 'icons/favicon-16x16.png',
+         appleTouchIcon: 'icons/apple-touch-icon-152x152.png',
+         msTileImage: 'icons/msapplication-icon-144x144.png'
+      }
    },
    devServer: {
       stats: "verbose",
