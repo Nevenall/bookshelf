@@ -66,6 +66,9 @@ export default {
 .md-app {
   height: 100vh;
 }
+.md-content {
+  overflow: auto;
+}
 .drawer-logo {
   padding: 10px;
 }
