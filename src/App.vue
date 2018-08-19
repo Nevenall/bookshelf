@@ -12,7 +12,7 @@
          <div class="drawer-logo">
             <img src="./assets/logo-vertical.png" alt="bookshelf logo">
          </div>
-          <md-list>
+         <md-list>
             <md-list-item md-expand v-for="section in book.sections" :key="section.name">
                <span class="md-list-item-text">{{section.name}}</span>
                <md-list slot="md-expand">
@@ -22,7 +22,7 @@
             <md-list-item v-for="page in book.pages" :key="page.path" @click="pushNav(page.path)">{{page.name}}</md-list-item>
          </md-list>
       </md-app-drawer>
-      <md-app-content>
+      <md-app-content md-scrollbar>
          <div id="page">
             <router-view/>
          </div>
@@ -63,9 +63,6 @@ export default {
 @import "~vue-material/dist/theme/all";
 @import "fonts/system-fonts.css";
 @import "fonts/book-fonts.css";
-html {
-  overflow-y: hidden;
-}
 .md-app {
   height: 100vh;
 }
