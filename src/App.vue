@@ -8,7 +8,7 @@
             <md-icon>chevron_right</md-icon>
          </span>
       </md-app-toolbar>
-      <md-app-drawer md-fixed md-persistent="full" :md-active.sync="drawer">
+      <md-app-drawer :md-active.sync="drawer">
          <div class="drawer-logo">
             <img src="./assets/logo-vertical.png" alt="bookshelf logo">
          </div>
