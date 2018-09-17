@@ -22,7 +22,7 @@
             <md-list-item v-for="page in book.pages" :key="page.path" @click="pushNav(page.path)">{{page.name}}</md-list-item>
          </md-list>
       </md-app-drawer>
-      <md-app-content md-scrollbar>
+      <md-app-content>
          <div id="page">
             <router-view/>
          </div>

@@ -32,11 +32,11 @@ module.exports = {
          .use('vue-page-loader')
          .loader('./src/vue-page-loader')
 
-         config.module
+      config.module
          .rule('page-assets')
          .include
-          .add(path.join(__dirname, 'src/pages/assets'))
-          .end()
+         .add(path.join(__dirname, 'src/pages/assets'))
+         .end()
          .use('url-loader')
          .loader('url-loader')
          .options({
