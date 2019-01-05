@@ -21,6 +21,7 @@ Some reasons to check it out:
 To see a live instance check out one of these:
 
 - [Ghosting the Edge](https://ghosting.bookshelf.press)
+- [Shift-X](https://shift-x.bookshelf.press)
 - [Sufficient Reason](https://sufficientreason.bookshelf.press)
 
 ## Usage 
