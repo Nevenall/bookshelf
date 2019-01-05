@@ -22,6 +22,7 @@ To see a live instance check out one of these:
 
 - [Ghosting the Edge](https://ghosting.bookshelf.press)
 - [Sufficient Reason](https://sufficientreason.bookshelf.press)
+- [Shift-X](https://shift-x/bookshelf.press)
 
 ## Usage 
 
