@@ -1,0 +1,112 @@
+html {
+   // set the base app shell font family
+   font-family: 'Roboto', sans-serif;
+   font-weight: 400;
+
+   // optimize
+   text-rendering: optimizeLegibility;
+   font-synthesis: none;
+
+   // set a base fontsize, the rest of the app uses rem.
+   font-size: 12px;
+
+   // base size will vary from 12 to 20 depending on the screen width.
+   @media (min-width: 320px) {
+      font-size: calc(12px + (20 - 12) * ((100vw - 320px) / (1200 - 320)));
+   }
+
+   @media (min-width: 1200px) {
+      font-size: 20px;
+   }
+
+}
+
+// base typography hiearchy and styles
+
+// do we do all the fonts/styles here? or is the app shell stuff separate? 
+// define the base app shell styles, then they can be overwritten at lower levels? 
+
+// todo - the app shell is a uniform roboto. We could have a type hiearchy for the app and one for the book, but 
+// I think it might be better to use the same shell for both. For consistency sake. 
+// so, if we define font sizes as theme variables
+
+main {
+
+   h1,
+   h2,
+   h3,
+   h4,
+   h5,
+   h6 {
+      line-height: 1;
+      letter-spacing: -0.07rem;
+      margin: 1rem 0 .5rem 0;
+   }
+
+
+   // all text elements
+   p,
+   dd,
+   li,
+   div,
+   span,
+   strong,
+   em {
+
+      line-height: 1.25;
+      letter-spacing: 0.025rem;
+      word-spacing: 0;
+   }
+
+
+   // block text elements
+   p,
+   dd,
+   li,
+   div {
+
+      margin: 0 0 .25rem 0;
+
+      &:last-child {
+         margin-block-end: 0;
+      }
+
+   }
+
+
+   // inline text elements
+   span {}
+
+
+   h1 {
+      font-size: var(--font-size-h1);
+   }
+
+   h2 {
+      font-size: var(--font-size-h2);
+   }
+
+   h3 {
+      font-size: var(--font-size-h3);
+   }
+
+   h4 {
+      font-size: var(--font-size-h4);
+   }
+
+   h5 {
+      font-size: var(--font-size-h5);
+   }
+
+   h6 {
+      font-size: var(--font-size-h6);
+   }
+
+
+   p,
+   span,
+   div {
+      font-size: var(--font-size-body);
+   }
+
+}

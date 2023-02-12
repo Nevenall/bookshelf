@@ -2,19 +2,28 @@
   // See https://go.microsoft.com/fwlink/?LinkId=733558
   // for the documentation about the tasks.json format
   "version": "2.0.0",
-  "tasks": [{
-      "type": "npm",
-      "script": "build",
-      "label": "build",
+  "tasks": [
+    {
+      "label": "build​",
+      "type": "gulp",
+      "task": "build",
       "group": {
         "kind": "build",
         "isDefault": true
+      },
+      "options": {
+        "cwd": "${workspaceFolder}"
       }
     },
     {
-      "type": "npm",
-      "script": "serve",
-      "label": "start",
+      "label": "develop",
+      "type": "gulp",
+      "task": "develop",
+      "options": {
+        "env": {
+          "NODE_ENV": "development"
+        }
+      },
       "problemMatcher": []
     }
   ]

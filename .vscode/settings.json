@@ -1,0 +1,6 @@
+{
+  "svg.preview.background": "white",
+  "emmet.includeLanguages": {
+    "postcss": "css"
+  }
+}

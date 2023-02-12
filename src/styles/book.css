@@ -1,0 +1,52 @@
+// book specific fonts
+@import url("https://fonts.googleapis.com/css?family=Abel&display=swap");
+
+
+@font-face {
+   font-family: 'Raleway';
+   font-style: normal;
+   font-weight: 100 900;
+   font-display: swap;
+   src: url("/fonts/raleway.woff2") format('woff2');
+}
+
+@font-face {
+   font-family: 'Raleway';
+   font-style: Italic;
+   font-weight: 100 900;
+   font-display: swap;
+   src: url("/fonts/raleway-italic.woff2") format('woff2');
+}
+
+
+@font-face {
+   font-family: 'Fate';
+   font-style: normal;
+   font-weight: 400;
+   font-display: swap;
+   src: url("/fonts/Fate-Icons.woff2") format('woff2');
+}
+
+
+#page {
+   h1,
+   h2,
+   h3,
+   h4,
+   h5,
+   h6 {
+      font-family: 'Abel', sans-serif;
+      font-weight: 400;
+   }
+   
+   p,
+   span,
+   li, 
+   a,
+   div,
+   footer {
+      font-family: 'Raleway', sans-serif;
+      // turn on the stylistic alternates. In general they are straighter forms. This provides more contrast with Abel. 
+      font-feature-settings: "liga" on, "kern" on, "ss02" on, "ss03" on, "ss04" on, "ss05" on, "ss06" on, "ss07" on, "ss08" on, "ss10" on, "ss10" on, "ss11" on;
+   }
+}

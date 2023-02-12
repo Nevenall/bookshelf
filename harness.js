@@ -1,10 +1,9 @@
-const str = `module.exports = "<p>some html dude</p>"`
-
-const what = [str]
-
-const json = JSON.stringify(str)
-// const obj = JSON.parse(str)
+import fs from 'fs/promises'
+import { compile, preprocess } from 'svelte/compiler'
 
 
+let source = await fs.readFile('src/book/03 Gearing Up.html')
 
-console.log(str)
+var result = compile(source.toString())
+
+var s = ''

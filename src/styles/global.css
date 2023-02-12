@@ -1,0 +1,83 @@
+@import "variables.css";
+@import "remedy.css";
+@import "fonts.css";
+@import "typography.css";
+@import "book.css";
+
+/* variables */
+$textElements: p,li,a,th,td,dd;
+
+// dark/light modes
+body {
+   background-color: var(--color-background);
+   color: var(--color-text);
+   transition: background-color var(--transition), color var(--transition);
+}
+
+@media (prefers-color-scheme:dark) {
+   :root {
+      --color-text: var(--color-light);
+      --color-background: var(--color-dark);
+   }
+
+   .dark {
+      --color-text: var(--color-light);
+      --color-background: var(--color-dark);
+   }
+
+   .light {
+      --color-text: var(--color-dark);
+      --color-background: var(--color-light);
+   }
+
+}
+
+main {
+   width: 35rem;
+   max-width: calc(100% - 4vw);
+   margin: 0 auto;
+}
+
+
+svg.logo {
+   width: auto;
+   height: 10vh;
+   margin: auto;
+}
+
+// size svg icons to fit into text
+svg.icon {
+   height: 1.5rem;
+}
+
+
+
+// create ripple effect
+.ripple {
+   position: relative;
+   overflow: hidden;
+   transform: translate3d(0, 0, 0);
+
+   &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      inset-block-start: 0;
+      inset-inline-start: 0;
+      pointer-events: none;
+      background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+      background-repeat: no-repeat;
+      background-position: 50%;
+      transform: scale(10, 10);
+      opacity: 0;
+      transition: transform .5s, opacity 1s;
+   }
+
+   &:active:after {
+      transform: scale(0, 0);
+      opacity: .3;
+      transition: 0s;
+   }
+}
