@@ -2,5 +2,7 @@
   "svg.preview.background": "white",
   "emmet.includeLanguages": {
     "postcss": "css"
-  }
+  },
+  "deno.enable": true,
+  "deno.unstable": true
 }
