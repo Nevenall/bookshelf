@@ -1,25 +1,25 @@
-import gulp from 'gulp'
+import gulp from 'npm:gulp'
 let { parallel, series, src, dest, watch } = gulp
 
-import through from 'through2'
-import replace from 'gulp-replace'
+import through from 'npm:through2'
+import replace from 'npm:gulp-replace'
 
-import sourcemaps from 'gulp-sourcemaps'
+import sourcemaps from 'npm:gulp-sourcemaps'
 
-import concat from "gulp-concat"
-import rename from 'gulp-rename'
-import gulpif from 'gulp-if'
-import del from 'delete'
-import { dirname } from 'path'
+import concat from "npm:gulp-concat"
+import rename from 'npm:gulp-rename'
+import gulpif from 'npm:gulp-if'
+import del from 'npm:delete'
+import { dirname } from 'node:path'
 
-import { compile, preprocess } from 'svelte/compiler'
+import { compile, preprocess } from 'npm:svelte/compiler'
 
 
-import postcss from 'postcss'
-import gulppostcss from 'gulp-postcss'
-import postcssloadconfig from 'postcss-load-config'
+import postcss from 'npm:postcss'
+import gulppostcss from 'npm:gulp-postcss'
+import postcssloadconfig from 'npm:postcss-load-config'
 
-import browserSync from 'browser-sync'
+import browserSync from 'npm:browser-sync'
 let devServer = browserSync.create()
 
 
@@ -27,7 +27,7 @@ let svelteOptions = {
    sveltePath: './svelte'
 }
 
-// default components import internals from "./svelte/internal"
+// default components import internals from "npm:./svelte/internal"
 // but the service-worker will then provide that file under each component directory
 // which breaks some of the internals of component compiling
 // therefore, we replace that import path with a static one
@@ -87,7 +87,7 @@ async function components() {
          })
             .then(preprocessed => {
                let compiled = compile(preprocessed.code, { filename: file.path, ...svelteOptions })
-               // default components import internals from "./svelte/internal"
+               // default components import internals from "npm:./svelte/internal"
                // but the service-worker will then provide that file under each component directory
                // which, i believe, breaks some of the internals of component compiling
                // therefore, we replace that import path with a static one
