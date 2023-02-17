@@ -47,6 +47,7 @@
    /* functional color assignments */
    --color-text: var(--color-dark);
    --color-background: var(--color-light);
+   
 
    /* variable used to store user preference */
    --user-color-pref: 'unset';
