@@ -15,7 +15,7 @@
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^10.4.7",
-    "browser-sync": "^2.26.12",
+    "browser-sync": "^3.0.2",
     "cssnano": "^5.1.12",
     "delete": "^1.1.0",
     "gulp": "^4.0.2",
