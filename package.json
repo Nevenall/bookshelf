@@ -16,7 +16,7 @@
   "devDependencies": {
     "autoprefixer": "^10.4.7",
     "browser-sync": "^3.0.2",
-    "cssnano": "^5.1.12",
+    "cssnano": "^9.9.0",
     "delete": "^1.1.0",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
@@ -29,7 +29,7 @@
     "postcss": "^8.4.31",
     "postcss-advanced-variables": "^3.0.1",
     "postcss-load-config": "^4.0.1",
-    "postcss-nested": "^6.0.0",
+    "postcss-nested": "^9.0.1",
     "postcss-scss": "^4.0.4",
     "postcss-simple-vars": "^7.0.1",
     "postcss-strip-inline-comments": "^0.1.5",
